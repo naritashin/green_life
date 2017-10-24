@@ -128,6 +128,9 @@ button {
   font-size: 24px;
   font-weight: bold; }
 
+.c-arrow {
+  display: inline-block; }
+
 .p-keyvisual {
   background-color: #eee; }
   .p-keyvisual__wrapper {
@@ -264,14 +267,71 @@ button {
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 24px;
     border: 2px solid #f80; }
     .p-news__contents__header {
+      padding-bottom: 6px;
       border-bottom: 2px solid #f80; }
+    .p-news__contents__list {
+      margin-top: 20px; }
+      .p-news__contents__list > li:last-child {
+        margin-top: 24px; }
+    .p-news__contents__inner {
+      float: left;
+      width: 705px; }
+    .p-news__contents__date {
+      font-size: 16px;
+      vertical-align: middle;
+      color: #f22;
+      margin-left: 7px; }
+    .p-news__contents__facility {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: bold;
+      vertical-align: middle;
+      color: #444;
+      margin-left: 20px; }
+    .p-news__contents__txtarea {
+      padding-left: 25px; }
+    .p-news__contents__title {
+      color: #444;
+      margin-top: 19px;
+      font-size: 16px;
+      font-weight: bold; }
+    .p-news__contents__txt {
+      height: 95px;
+      color: #444;
+      line-height: 23px;
+      overflow: hidden;
+      margin-top: 16px;
+      font-size: 16px; }
+    .p-news__contents__openner {
+      display: block;
+      color: #f80;
+      margin-top: 26px;
+      font-size: 16px;
+      text-align: right;
+      text-decoration: underline; }
+      .p-news__contents__openner:hover {
+        text-decoration: none; }
+    .p-news__contents__item {
+      float: left;
+      margin-left: 15px; }
   .p-news__title {
     margin-top: 10px;
     font-size: 20px;
     color: #f80; }
+
+.p-info__wrapper {
+  width: 100%;
+  max-width: 980px;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px; }
+
+.p-info__inner {
+  border: 2px solid #3a6; }
 
 .u-cf:before, .u-cf:after {
   clear: both;

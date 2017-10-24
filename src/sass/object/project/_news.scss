@@ -12,12 +12,112 @@
       top: 10px;
       left: 20px;
       right: 20px;
-      bottom: 10px;
+      bottom: 24px;
     }
     border: 2px solid #f80;
 
     &__header {
+      padding: {
+        bottom: 6px;
+      }
       border-bottom: 2px solid #f80;
+    }
+
+    &__list {
+      margin: {
+        top: 20px;
+      }
+
+      & > li {
+        &:last-child {
+          margin: {
+            top: 24px;
+          }
+        }
+      }
+    }
+
+    &__inner {
+      float: left;
+      width: 705px;
+    }
+
+    &__date {
+      font-size: 16px;
+      vertical-align: middle;
+      color: #f22;
+      margin: {
+        left: 7px;
+      }
+    }
+
+    &__facility {
+      display: inline-block;
+      font: {
+        size: 18px;
+        weight: bold;
+      }
+      vertical-align: middle;
+      color: #444;
+      margin: {
+        left: 20px;
+      }
+    }
+
+    &__txtarea {
+      padding: {
+        left: 25px;
+      }
+    }
+
+    &__title {
+      color: #444;
+      margin: {
+        top: 19px;
+      }
+      font: {
+        size: 16px;
+        weight: bold;
+      }
+    }
+
+    &__txt {
+      height: 95px;
+      color: #444;
+      line-height: 23px;
+      overflow: hidden;
+      margin: {
+        top:16px;
+      }
+      font: {
+        size: 16px;
+      }
+    }
+
+    &__openner {
+      display: block;
+      color: #f80;
+      margin: {
+        top: 26px;
+      }
+      font :{
+        size: 16px;
+      }
+      text: {
+        align: right;
+        decoration: underline;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &__item {
+      float: left;
+      margin: {
+        left: 15px;
+      }
     }
   }
 
