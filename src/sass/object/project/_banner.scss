@@ -1,0 +1,29 @@
+.p-banner {
+
+  &__wrapper {
+    @include wrapper(984px, 50px);
+  }
+
+  &__inner {
+    border: 1px solid #3a6;
+  }
+
+  &__first {
+    float: left;
+    border-right: 1px solid #3a6;
+  }
+
+  &__list {
+    width: 685px;
+    float: left;
+    & > li {
+      float: left;
+    }
+  }
+
+  &__img {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

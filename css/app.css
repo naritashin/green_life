@@ -49,9 +49,6 @@ table {
   box-sizing: border-box;
   font-size: 0; }
 
-body {
-  margin-left: -10px; }
-
 a {
   text-decoration: none; }
 
@@ -123,6 +120,61 @@ button {
       background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_05_contact.png); }
       .header__nav__contact:hover {
         background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_05_contact_on.png); }
+
+.footer__gotop {
+  width: 100%;
+  max-width: 980px;
+  margin-top: 58px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: right; }
+  .footer__gotop__btn {
+    display: inline-block;
+    color: #151;
+    font-size: 14px;
+    text-decoration: underline; }
+  .footer__gotop__img {
+    display: inline-block;
+    margin-left: 14px;
+    vertical-align: text-bottom; }
+
+.footer__logo {
+  font-size: 0;
+  border-top: 4px solid #8c5;
+  margin-top: 17px; }
+  .footer__logo__inner {
+    width: 100%;
+    max-width: 980px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto; }
+
+.footer__link {
+  display: inline-block;
+  font-size: 14px;
+  color: #151;
+  text-decoration: underline; }
+  .footer__link:hover {
+    text-decoration: none; }
+  .footer__link__split {
+    font-size: 14px;
+    color: #3a6;
+    padding-top: 29px;
+    margin-left: 18px;
+    margin-right: 18px; }
+  .footer__link__wrapper {
+    padding-top: 29px;
+    float: left; }
+
+.footer__img {
+  float: right; }
+
+.footer__copyright {
+  font-size: 14px;
+  line-height: 51px;
+  background-color: #3a6;
+  color: #fff;
+  text-align: center; }
 
 .c-title {
   font-size: 24px;
@@ -209,8 +261,7 @@ button {
       margin-left: 10px; }
 
 .p-facility {
-  background-color: #faffef;
-  margin-left: 10px; }
+  background-color: #faffef; }
   .p-facility__wrapper {
     width: 100%;
     max-width: 980px;
@@ -254,84 +305,187 @@ button {
     margin-left: auto;
     margin-right: auto; }
 
-.p-news {
-  margin-left: 10px; }
-  .p-news__wrapper {
-    width: 100%;
-    max-width: 984px;
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 50px; }
-  .p-news__contents {
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 24px;
-    border: 2px solid #f80; }
-    .p-news__contents__header {
-      padding-bottom: 6px;
-      border-bottom: 2px solid #f80; }
-    .p-news__contents__list {
-      margin-top: 20px; }
-      .p-news__contents__list > li:last-child {
-        margin-top: 24px; }
-    .p-news__contents__inner {
-      float: left;
-      width: 705px; }
-    .p-news__contents__date {
-      font-size: 16px;
-      vertical-align: middle;
-      color: #f22;
-      margin-left: 7px; }
-    .p-news__contents__facility {
-      display: inline-block;
-      font-size: 18px;
-      font-weight: bold;
-      vertical-align: middle;
-      color: #444;
-      margin-left: 20px; }
-    .p-news__contents__txtarea {
-      padding-left: 25px; }
-    .p-news__contents__title {
-      color: #444;
-      margin-top: 19px;
-      font-size: 16px;
-      font-weight: bold; }
-    .p-news__contents__txt {
-      height: 95px;
-      color: #444;
-      line-height: 23px;
-      overflow: hidden;
-      margin-top: 16px;
-      font-size: 16px; }
-    .p-news__contents__openner {
-      display: block;
-      color: #f80;
-      margin-top: 26px;
-      font-size: 16px;
-      text-align: right;
-      text-decoration: underline; }
-      .p-news__contents__openner:hover {
-        text-decoration: none; }
-    .p-news__contents__item {
-      float: left;
-      margin-left: 15px; }
-  .p-news__title {
-    margin-top: 10px;
-    font-size: 20px;
-    color: #f80; }
+.p-news__wrapper {
+  width: 100%;
+  max-width: 984px;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px; }
+
+.p-news__contents {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 24px;
+  border: 2px solid #f80; }
+  .p-news__contents__header {
+    padding-bottom: 6px;
+    border-bottom: 2px solid #f80; }
+  .p-news__contents__list {
+    margin-top: 20px; }
+    .p-news__contents__list > li:last-child {
+      margin-top: 24px; }
+  .p-news__contents__inner {
+    float: left;
+    width: 705px; }
+  .p-news__contents__date {
+    font-size: 16px;
+    vertical-align: middle;
+    color: #f22;
+    margin-left: 7px; }
+  .p-news__contents__facility {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #444;
+    margin-left: 20px; }
+  .p-news__contents__txtarea {
+    padding-left: 25px; }
+  .p-news__contents__title {
+    color: #444;
+    margin-top: 19px;
+    font-size: 16px;
+    font-weight: bold; }
+  .p-news__contents__txt {
+    height: 95px;
+    color: #444;
+    line-height: 23px;
+    overflow: hidden;
+    margin-top: 16px;
+    font-size: 16px; }
+  .p-news__contents__openner {
+    display: block;
+    color: #f80;
+    margin-top: 26px;
+    font-size: 16px;
+    text-align: right;
+    text-decoration: underline; }
+    .p-news__contents__openner:hover {
+      text-decoration: none; }
+  .p-news__contents__item {
+    float: left;
+    margin-left: 15px; }
+
+.p-news__title {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #f80; }
 
 .p-info__wrapper {
   width: 100%;
-  max-width: 980px;
+  max-width: 984px;
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   padding-top: 50px; }
 
 .p-info__inner {
-  border: 2px solid #3a6; }
+  border: 2px solid #8c5;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px; }
+
+.p-info__header {
+  padding-bottom: 6px;
+  border-bottom: 2px solid #8c5; }
+
+.p-info__title {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #8c5; }
+
+.p-info__list {
+  padding-top: 20px; }
+  .p-info__list > li:nth-child(n+2) {
+    margin-top: 20px; }
+
+.p-info__date {
+  font-size: 16px;
+  vertical-align: middle;
+  color: #444;
+  margin-left: 7px; }
+
+.p-info__txt {
+  line-height: 24px;
+  display: block;
+  color: #151;
+  margin-top: 13px;
+  font-size: 16px;
+  text-decoration: underline; }
+  .p-info__txt:hover {
+    text-decoration: none; }
+
+.p-sitemap__wrapper {
+  width: 100%;
+  max-width: 984px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2px;
+  padding-right: 2px; }
+
+.p-sitemap__list > li {
+  float: left; }
+  .p-sitemap__list > li:nth-child(n+2) {
+    margin-left: 10px; }
+
+.p-sitemap__link {
+  margin-left: 7px;
+  font-size: 14px;
+  text-decoration: underline;
+  vertical-align: super;
+  color: #151; }
+  .p-sitemap__link:hover {
+    text-decoration: none; }
+  .p-sitemap__link__list {
+    padding-top: 15px;
+    padding-left: 10px; }
+    .p-sitemap__link__list > li:nth-child(n+2) {
+      margin-top: 12px; }
+
+.p-sitemap__charactor {
+  height: 367px;
+  border: 1px solid #3a6;
+  background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/top/sm-bk01.jpg);
+  background-position: 100% 100%; }
+
+.p-sitemap__company {
+  height: 367px;
+  border: 1px solid #8c5;
+  background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/top/sm-bk02.jpg);
+  background-position: 100% 100%; }
+
+.p-sitemap__recruit {
+  height: 367px;
+  border: 1px solid #0eA;
+  background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/top/sm-bk03.jpg);
+  background-position: 100% 100%; }
+
+.p-banner__wrapper {
+  width: 100%;
+  max-width: 984px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.p-banner__inner {
+  border: 1px solid #3a6; }
+
+.p-banner__first {
+  float: left;
+  border-right: 1px solid #3a6; }
+
+.p-banner__list {
+  width: 685px;
+  float: left; }
+  .p-banner__list > li {
+    float: left; }
+
+.p-banner__img:hover {
+  opacity: 0.7; }
 
 .u-cf:before, .u-cf:after {
   clear: both;
@@ -343,3 +497,15 @@ button {
 
 .u-fr {
   float: right; }
+
+.is-active {
+  display: block; }
+
+.u-align-left {
+  text-align: left; }
+
+.u-align-right {
+  text-align: right; }
+
+.u-align-center {
+  text-align: center; }

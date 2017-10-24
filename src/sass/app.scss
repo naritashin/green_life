@@ -8,6 +8,7 @@
 //
 // layout
 @import './layout/header';
+@import './layout/footer';
 //
 // object
 @import './object/component/title';
@@ -18,7 +19,11 @@
 @import './object/project/facility';
 @import './object/project/news';
 @import './object/project/info';
+@import './object/project/sitemap';
+@import './object/project/banner';
 
 @import './object/utility/clearfix';
+@import './object/utility/display';
+@import './object/utility/align';
 
 //

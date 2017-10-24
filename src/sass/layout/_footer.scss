@@ -1,0 +1,77 @@
+.footer {
+
+  &__gotop {
+    @include wrapper($maxWidth, 58px);
+    text-align: right;
+
+    &__btn {
+      display: inline-block;
+      color: #151;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+
+    &__img {
+      display: inline-block;
+      margin: {
+        left: 14px;
+      }
+      vertical-align: text-bottom;
+    }
+  }
+
+  &__logo {
+    font-size: 0;
+    border-top: 4px solid #8c5;
+    margin: {
+      top: 17px;
+    }
+
+    &__inner {
+      @include wrapper($maxWidth, 0);
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 14px;
+    color: #151;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &__split {
+      font-size: 14px;
+      color: #3a6;
+      padding: {
+        top: 29px;
+      }
+      margin: {
+        left: 18px;
+        right: 18px;
+      }
+    }
+
+    &__wrapper {
+      padding: {
+        top: 29px;
+      }
+      float: left;
+    }
+  }
+
+  &__img {
+    float: right;
+  }
+
+  &__copyright {
+    font-size: 14px;
+    line-height: 51px;
+    background-color: #3a6;
+    color: #fff;
+    text-align: center;
+
+  }
+}

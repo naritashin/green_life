@@ -1,6 +1,5 @@
 .p-facility {
   background-color: #faffef;
-  margin-left: 10px;
 
   &__wrapper {
     @include wrapper($maxWidth, 40px);

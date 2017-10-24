@@ -1,0 +1,72 @@
+.p-sitemap {
+
+  &__wrapper {
+    @include wrapper(984px, 30px);
+    padding: {
+      left: 2px;
+      right: 2px;
+    }
+  }
+
+  &__list {
+    & > li {
+      float: left;
+
+      &:nth-child(n+2) {
+        margin: {
+          left: 10px;
+        }
+      }
+    }
+  }
+
+  &__link {
+    margin: {
+      left: 7px;
+    }
+    font-size: 14px;
+    text-decoration: underline;
+    vertical-align: super;
+    color: #151;
+
+    &:hover {
+      text-decoration: none;
+    }
+    &__list {
+      padding: {
+        top: 15px;
+        left: 10px;
+      }
+
+      & > li {
+        &:nth-child(n+2) {
+          margin: {
+            top: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  &__charactor {
+    height: 367px;
+    border: 1px solid #3a6;
+    background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/top/sm-bk01.jpg);
+    background-position: 100% 100%;
+  }
+
+  &__company {
+    height: 367px;
+    border: 1px solid #8c5;
+    background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/top/sm-bk02.jpg);
+    background-position: 100% 100%;
+  }
+
+  &__recruit {
+    height: 367px;
+    border: 1px solid #0eA;
+    background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/top/sm-bk03.jpg);
+    background-position: 100% 100%;
+  }
+
+}
