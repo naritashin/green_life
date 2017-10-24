@@ -1,0 +1,21 @@
+.p-keyvisual {
+  background-color: #eee;
+
+  &__wrapper {
+    @include wrapper(1100px, 0);
+  }
+
+  &__list {
+    & > li {
+      display: inline-block;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+}

@@ -46,16 +46,240 @@ table {
   border-spacing: 0; }
 
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-size: 0; }
+
+body {
+  margin-left: -10px; }
 
 a {
   text-decoration: none; }
 
+button {
+  padding: 0;
+  border: none;
+  background: none; }
+
 .header {
   width: 100%; }
-  .header__wrapper {
+  .header__logo {
     width: 100%;
-    max-width: 1000px;
+    max-width: 980px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 66px; }
+    .header__logo__gl {
+      float: left; }
+    .header__logo__sh {
+      float: right; }
+  .header__fsselect {
+    background-color: #eee;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2) inset; }
+    .header__fsselect__wrapper {
+      width: 100%;
+      max-width: 980px;
+      margin-top: 0;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 4px;
+      padding-bottom: 3px; }
+    .header__fsselect__btn {
+      display: inline-block; }
+  .header__nav {
+    background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/nav_bk.png); }
+    .header__nav__list {
+      width: 100%;
+      max-width: 980px;
+      margin-top: 0;
+      margin-left: auto;
+      margin-right: auto; }
+      .header__nav__list > li {
+        width: 196px;
+        height: 87px;
+        float: left; }
+    .header__nav__link {
+      display: block;
+      height: 100%; }
+    .header__nav__menubar {
+      display: none; }
+    .header__nav__search {
+      background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_01_search.png); }
+      .header__nav__search:hover {
+        background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_01_search_on.png); }
+    .header__nav__good {
+      background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_02_pickup.png); }
+      .header__nav__good:hover {
+        background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_02_pickup_on.png); }
+    .header__nav__company {
+      background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_03_company.png); }
+      .header__nav__company:hover {
+        background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_03_company_on.png); }
+    .header__nav__recruit {
+      background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_04_recruit.png); }
+      .header__nav__recruit:hover {
+        background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_04_recruit_on.png); }
+    .header__nav__contact {
+      background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_05_contact.png); }
+      .header__nav__contact:hover {
+        background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_05_contact_on.png); }
+
+.c-title {
+  font-size: 24px;
+  font-weight: bold; }
+
+.p-keyvisual {
+  background-color: #eee; }
+  .p-keyvisual__wrapper {
+    width: 100%;
+    max-width: 1100px;
     margin-top: 0;
     margin-left: auto;
     margin-right: auto; }
+  .p-keyvisual__list > li {
+    display: inline-block; }
+    .p-keyvisual__list > li:hover {
+      opacity: 0.7; }
+  .p-keyvisual__img {
+    width: 100%; }
+
+.p-search__wrapper {
+  width: 100%;
+  max-width: 980px;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 72px; }
+
+.p-search__title {
+  padding-bottom: 12px;
+  text-align: center;
+  border-bottom: 2px solid #0f813f;
+  color: #555; }
+
+.p-search__contact {
+  float: left;
+  width: 384px;
+  padding-top: 36px; }
+  .p-search__contact__title {
+    color: #3a6; }
+  .p-search__contact__form {
+    margin-top: 16px; }
+  .p-search__contact__input {
+    width: 289px;
+    border: 2px solid #666;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 39px;
+    vertical-align: bottom;
+    padding-left: 10px;
+    margin-bottom: 2px; }
+  .p-search__contact__btn {
+    margin-left: 10px; }
+  .p-search__contact__tel {
+    border-top: 2px solid #ce7;
+    margin-top: 18px;
+    padding-top: 26px; }
+    .p-search__contact__tel__title {
+      color: #3a6;
+      display: inline-block; }
+  .p-search__contact__time {
+    font-size: 16px;
+    color: #555;
+    margin-left: 15px; }
+  .p-search__contact__num {
+    color: #484848;
+    font-size: 49px;
+    font-weight: bold;
+    margin-top: 33px; }
+  .p-search__contact__inspect {
+    text-align: center;
+    margin-top: 22px; }
+
+.p-search__list {
+  float: left;
+  margin-top: 30px;
+  margin-left: 50px; }
+  .p-search__list > li {
+    display: inline-block; }
+    .p-search__list > li:nth-child(n+2) {
+      margin-left: 10px; }
+
+.p-facility {
+  background-color: #faffef;
+  margin-left: 10px; }
+  .p-facility__wrapper {
+    width: 100%;
+    max-width: 980px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 47px;
+    padding-bottom: 89px; }
+  .p-facility__title {
+    width: 240px;
+    margin: 0 auto;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #0f813f;
+    color: #555; }
+  .p-facility__list {
+    margin-top: 30px; }
+    .p-facility__list > li {
+      float: left;
+      margin-left: 6px;
+      margin-right: 6px; }
+  .p-facility__link {
+    display: inline-block;
+    width: 100%;
+    margin-top: 13px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: underline;
+    color: #676; }
+    .p-facility__link__btn {
+      padding-left: 2px;
+      padding-bottom: 2px;
+      vertical-align: text-bottom; }
+  .p-facility__category {
+    width: 90%;
+    font-size: 12px;
+    line-height: 34px;
+    border: 1px solid #0f813f;
+    color: #0f813f;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto; }
+
+.p-news {
+  margin-left: 10px; }
+  .p-news__wrapper {
+    width: 100%;
+    max-width: 984px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px; }
+  .p-news__contents {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border: 2px solid #f80; }
+    .p-news__contents__header {
+      border-bottom: 2px solid #f80; }
+  .p-news__title {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #f80; }
+
+.u-cf:before, .u-cf:after {
+  clear: both;
+  display: block;
+  content: ""; }
+
+.u-fl {
+  float: left; }
+
+.u-fr {
+  float: right; }

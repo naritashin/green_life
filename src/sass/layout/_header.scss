@@ -1,7 +1,87 @@
 .header {
   width: 100%;
 
-  &__wrapper {
-    @include wrapper(1000px, 0);
+  &__logo {
+    @include wrapper($maxWidth, 0);
+    height: 66px;
+
+    &__gl {
+      float: left;
+    }
+
+    &__sh {
+      float: right;
+    }
+  }
+
+  &__fsselect {
+    background-color: #eee;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2) inset;
+
+    &__wrapper {
+      @include wrapper($maxWidth, 0);
+      padding: {
+        top: 4px;
+        bottom: 3px;
+      }
+    }
+
+    &__btn {
+      display: inline-block;
+    }
+  }
+
+  &__nav {
+    background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/nav_bk.png);
+
+    &__list {
+      @include wrapper($maxWidth, 0);
+
+      & > li {
+        width: 196px;
+        height: 87px;
+        float: left;
+      }
+    }
+
+    &__link {
+      display: block;
+      height: 100%
+    }
+
+    &__menubar {
+      display: none;
+    }
+
+    &__search {
+      background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_01_search.png);
+      &:hover {
+        background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_01_search_on.png);
+      }
+    }
+    &__good {
+      background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_02_pickup.png);
+      &:hover {
+        background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_02_pickup_on.png);
+      }
+    }
+    &__company {
+      background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_03_company.png);
+      &:hover {
+        background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_03_company_on.png);
+      }
+    }
+    &__recruit {
+      background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_04_recruit.png);
+      &:hover {
+        background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_04_recruit_on.png);
+      }
+    }
+    &__contact {
+      background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_05_contact.png);
+      &:hover {
+        background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_05_contact_on.png);
+      }
+    }
   }
 }

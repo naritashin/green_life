@@ -1,0 +1,29 @@
+.p-news {
+  margin-left: 10px;
+  &__wrapper {
+    @include wrapper(984px, 0);
+    padding: {
+      top: 50px;
+    }
+  }
+
+  &__contents {
+    padding: {
+      top: 10px;
+      left: 20px;
+      right: 20px;
+      bottom: 10px;
+    }
+    border: 2px solid #f80;
+
+    &__header {
+      border-bottom: 2px solid #f80;
+    }
+  }
+
+  &__title {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #f80;
+  }
+}
