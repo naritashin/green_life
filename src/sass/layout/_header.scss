@@ -1,0 +1,7 @@
+.header {
+  width: 100%;
+
+  &__wrapper {
+    @include wrapper(1000px, 0);
+  }
+}
