@@ -1,0 +1,20 @@
+{
+  "news": [
+    {
+      "year": "2017",
+      "month": "10",
+      "day": "24",
+      "facility": "メディス薮塚",
+      "title": "太鼓まつりのお知らせ",
+      "contentUrl": "../../api/news_contents/taiko_fest.html"
+    },
+    {
+      "year": "2017",
+      "month": "10",
+      "day": "24",
+      "facility": "メディス吉岡",
+      "title": "ランチの紹介です♪",
+      "contentUrl": "../../api/news_contents/lunchmenu.html"
+    }
+  ]
+}
