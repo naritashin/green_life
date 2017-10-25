@@ -12,10 +12,10 @@
 <body>
 
   <header class="header">
-    <div class="header__logo u-cf">
+    <section class="header__logo u-cf">
       <figure class="header__logo__gl">
         <a href="">
-          <img src="http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/logo_gl.png" alt="green_life_logo">
+          <img src="http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/logo_gl.png" alt="green_life_logo" class="header__logo__gl__img">
         </a>
       </figure>
       <figure class="header__logo__sh">
@@ -23,15 +23,13 @@
           <img src="http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/logo_sh.png" alt="SHIP_logo">
         </a>
       </figure>
-    </div>
+    </section>
 
-    <div class="header__fsselect u-cf">
+    <section class="header__fsselect u-cf">
       <div class="header__fsselect__wrapper u-cf">
         <div class="header__fsselect__inner u-fr">
           <figure class="header__fsselect__btn">
-            <a href="">
-              <img src="http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/txt_size.png" alt="size">
-            </a>
+            <img src="http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/txt_size.png" alt="size">
           </figure>
           <figure class="header__fsselect__btn">
             <a href="">
@@ -45,13 +43,21 @@
           </figure>
         </div>
       </div>
-    </div>
+    </section>
 
     <nav class="header__nav">
+      <div class="header__nav__bar__wrapper u-cf">
+        <p class="header__nav__bar__title u-fl">メニュー</p>
+        <ul class="header__nav__bar__btn u-fr">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
       <ul class="header__nav__list u-cf">
         <li>
-          <a href="" class="header__nav__link header__nav__search"></a>
-          <ul class="header__nav__menubar">
+          <a href="" class="header__nav__link header__nav__search">施設を探す</a>
+          <ul class="header__nav__menu">
             <li><a href="">予算から探す</a></li>
             <li><a href="">場所から探す</a></li>
             <li><a href="">施設のタイプから探す</a></li>
@@ -60,8 +66,8 @@
           </ul>
         </li>
         <li>
-          <a href="" class="header__nav__link header__nav__good"></a>
-          <ul class="header__nav__menubar">
+          <a href="" class="header__nav__link header__nav__good">暮らしへのこだわり</a>
+          <ul class="header__nav__menu">
             <li><a href="">暮らしへのこだわり</a></li>
             <li><a href="">食事へのこだわり</a></li>
             <li><a href="">リハビリテーションへのこだわり</a></li>
@@ -71,8 +77,8 @@
           </ul>
         </li>
         <li>
-          <a href="" class="header__nav__link header__nav__company"></a>
-          <ul class="header__nav__menubar">
+          <a href="" class="header__nav__link header__nav__company">運営企業情報</a>
+          <ul class="header__nav__menu">
             <li><a href="">ご挨拶</a></li>
             <li><a href="">企業概要</a></li>
             <li><a href="">事業内容</a></li>
@@ -82,17 +88,18 @@
           </ul>
         </li>
         <li>
-          <a href="" class="header__nav__link header__nav__recruit"></a>
-          <ul class="header__nav__menubar">
+          <a href="" class="header__nav__link header__nav__recruit">採用情報</a>
+          <ul class="header__nav__menu">
             <li><a href="">採用情報</a></li>
             <li><a href="">スタッフの想い</a></li>
           </ul>
         </li>
         <li>
-          <a href="" class="header__nav__link header__nav__contact"></a>
+          <a href="" class="header__nav__link header__nav__contact">お問い合わせ</a>
         </li>
       </ul>
     </nav>
+
   </header>
 
   <main>
