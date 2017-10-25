@@ -18,16 +18,23 @@
   }
 
   &__list {
+    width: 980px;
+    overflow: hidden;
     margin: {
       top: 30px;
     }
     & > li {
+      width: 245px;
       float: left;
-      margin: {
+      padding: {
         left: 6px;
         right: 6px;
       }
     }
+  }
+
+  &__img {
+    width: 100%;
   }
 
   &__link {

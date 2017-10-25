@@ -68,8 +68,12 @@ button {
     height: 66px; }
     .header__logo__gl {
       float: left; }
+      .header__logo__gl:hover {
+        opacity: 0.7; }
     .header__logo__sh {
       float: right; }
+      .header__logo__sh:hover {
+        opacity: 0.7; }
   .header__fsselect {
     background-color: #eee;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2) inset; }
@@ -127,10 +131,15 @@ button {
         border-bottom: 1px solid #fe9e2e; }
       .header__nav__menu__link {
         display: block;
+        padding: 17px 15px;
         color: #666;
         font-size: 14px;
-        line-height: 47px;
-        text-decoration: underline; }
+        text-decoration: underline;
+        -webkit-transition: all 0.4s linear;
+        -moz-transition: all 0.4s linear;
+        -ms-transition: all 0.4s linear;
+        -o-transition: all 0.4s linear;
+        transition: all 0.4s linear; }
         .header__nav__menu__link:hover {
           color: #fa4;
           background-color: #ffffed; }
@@ -450,11 +459,16 @@ button {
     border-bottom: 2px solid #0f813f;
     color: #555; }
   .p-facility__list {
+    width: 980px;
+    overflow: hidden;
     margin-top: 30px; }
     .p-facility__list > li {
+      width: 245px;
       float: left;
-      margin-left: 6px;
-      margin-right: 6px; }
+      padding-left: 6px;
+      padding-right: 6px; }
+  .p-facility__img {
+    width: 100%; }
   .p-facility__link {
     display: inline-block;
     width: 100%;
@@ -753,3 +767,9 @@ button {
 
 .u-align-center {
   text-align: center; }
+
+.is-default {
+  font-size: 100%; }
+
+.is-large {
+  font-size: 150%; }
