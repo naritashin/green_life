@@ -126,4 +126,37 @@
     font-size: 20px;
     color: #f80;
   }
+
+  @media (max-width: 640px) {
+    &__title {
+      font-size: 16px;
+    }
+
+    &__contents {
+      padding: 8px 10px;
+
+      &__header {
+        padding-bottom: 0;
+      }
+
+      &__inner {
+        width: 100%;
+        float: none;
+      }
+
+      &__txtarea {
+        padding: 0;
+      }
+
+      &__item {
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+      }
+
+      &__img {
+        width: 100%;
+      }
+    }
+  }
 }

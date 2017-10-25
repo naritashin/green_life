@@ -89,6 +89,10 @@
       margin: {
         top: 22px;
       }
+
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 
@@ -104,6 +108,104 @@
       &:nth-child(n+2) {
         margin: {
           left: 10px;
+        }
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &__img {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 640px) {
+
+    &__wrapper {
+      padding: {
+        top: 68px;
+        left: 5px;
+        right: 5px;
+      }
+    }
+
+    &__title {
+      font-size: 16px;
+      padding-bottom: 8px;
+    }
+
+    &__contact {
+      float: none;
+      width: 100%;
+      padding: {
+        top: 35px;
+      }
+
+      &__title {
+        font-size: 19px;
+      }
+
+      &__form {
+        margin: {
+          top: 15px;
+        }
+      }
+
+      &__input {
+        width: 204px;
+        font-size: 13px;
+      }
+
+      &__tel {
+        text-align: center;
+        padding: {
+          top: 25px;
+        }
+
+        &__title {
+          font-size: 19px;
+        }
+      }
+
+      &__time {
+        font-size: 13px;
+      }
+
+      &__num {
+        font-size: 29px;
+        margin: {
+          top: 26px;
+        }
+      }
+
+      &__inspect {
+        margin: {
+          top: 17px;
+        }
+
+        &__img {
+          width: 100%;
+        }
+      }
+    }
+
+    &__list {
+      float: none;
+      width: 100%;
+      margin: {
+        top: 34px;
+        left: 0;
+      }
+
+      & > li {
+        width: 32.8%;
+
+        &:nth-child(n+2) {
+          margin: {
+            left: 4px;
+          }
         }
       }
     }

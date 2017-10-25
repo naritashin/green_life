@@ -1,5 +1,4 @@
 .footer {
-
   &__gotop {
     @include wrapper($maxWidth, 58px);
     text-align: right;
@@ -72,6 +71,35 @@
     background-color: #3a6;
     color: #fff;
     text-align: center;
+  }
 
+  @media (max-width: 640px) {
+    &__gotop {
+      margin: {
+        top: 50px;
+      }
+    }
+
+    &__logo {
+      margin: {
+        top: 10px;
+      }
+      &__inner {
+        text-align: center;
+      }
+    }
+
+    &__link {
+      &__wrapper {
+        float: none;
+      }
+    }
+
+    &__img {
+      margin: {
+        top: 3px;
+      }
+      float: none;
+    }
   }
 }

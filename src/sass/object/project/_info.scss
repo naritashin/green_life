@@ -71,5 +71,18 @@
     }
   }
 
+  @media (max-width: 640px) {
+    &__inner {
+      padding: 8px 10px;
+    }
+
+    &__header {
+      padding: 0;
+    }
+
+    &__title {
+      font-size: 16px;
+    }
+  }
 }
 

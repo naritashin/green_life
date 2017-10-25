@@ -82,10 +82,17 @@ button {
       padding-top: 4px;
       padding-bottom: 3px; }
     .header__fsselect__btn {
-      display: inline-block; }
+      display: inline-block;
+      width: 80px;
+      height: 30px; }
+    .header__fsselect__default {
+      border-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_default.png); }
+    .header__fsselect__large {
+      border-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_large.png); }
   .header__nav {
     background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/nav_bk.png); }
     .header__nav__list {
+      position: relative;
       width: 100%;
       max-width: 980px;
       margin-top: 0;
@@ -97,9 +104,36 @@ button {
         float: left; }
     .header__nav__link {
       display: block;
-      height: 100%; }
+      height: 100%;
+      font-size: 0; }
+    .header__nav__toggle {
+      display: none;
+      width: 48px;
+      line-height: 40px;
+      text-align: center;
+      background-color: #999;
+      color: #333;
+      font-size: 18px; }
+      .header__nav__toggle:hover {
+        cursor: pointer; }
     .header__nav__menu {
-      display: none; }
+      display: none;
+      width: 196px;
+      position: absolute; }
+      .header__nav__menu > li {
+        width: 100%;
+        background-color: #fff;
+        text-align: center;
+        border-bottom: 1px solid #fe9e2e; }
+      .header__nav__menu__link {
+        display: block;
+        color: #666;
+        font-size: 14px;
+        line-height: 47px;
+        text-decoration: underline; }
+        .header__nav__menu__link:hover {
+          color: #fa4;
+          background-color: #ffffed; }
     .header__nav__search {
       background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/btn_01_search.png); }
       .header__nav__search:hover {
@@ -136,10 +170,13 @@ button {
     .header__nav__bar__btn {
       width: 40px;
       height: 30px;
+      box-shadow: inset 0 1px 1px #888;
       padding-top: 10px;
       padding-left: 11px;
       border-radius: 4px;
       background-color: #000; }
+      .header__nav__bar__btn:hover {
+        cursor: pointer; }
       .header__nav__bar__btn > li {
         width: 18px;
         border: 1px solid #fff; }
@@ -154,24 +191,36 @@ button {
         float: none;
         width: 100%; }
         .header__logo__gl__img {
+          vertical-align: top;
           width: 100%; }
+      .header__logo__sh {
+        float: none;
+        display: block;
+        text-align: center; }
     .header__fsselect {
       display: none; }
     .header__nav {
-      background-image: none;
-      font-size: 0; }
-      .header__nav__list > li {
-        width: 100%;
-        height: 49px;
-        background-color: none; }
+      background-image: none; }
+      .header__nav__list {
+        display: none; }
+        .header__nav__list > li {
+          position: relative;
+          width: 100%;
+          height: 49px;
+          background-color: none; }
+      .header__nav__toggle {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0; }
       .header__nav__link {
         display: block;
         padding-left: 16px;
         text-decoration: underline;
         background-color: #aaa;
         color: #333;
-        line-height: 49px;
         font-size: 16px;
+        line-height: 49px;
         text-shadow: 0 0 1px #ccc;
         border-bottom: 1px solid #999; }
         .header__nav__link:hover {
@@ -237,6 +286,19 @@ button {
   background-color: #3a6;
   color: #fff;
   text-align: center; }
+
+@media (max-width: 640px) {
+  .footer__gotop {
+    margin-top: 50px; }
+  .footer__logo {
+    margin-top: 10px; }
+    .footer__logo__inner {
+      text-align: center; }
+  .footer__link__wrapper {
+    float: none; }
+  .footer__img {
+    margin-top: 3px;
+    float: none; } }
 
 .c-title {
   font-size: 24px;
@@ -312,6 +374,8 @@ button {
   .p-search__contact__inspect {
     text-align: center;
     margin-top: 22px; }
+    .p-search__contact__inspect:hover {
+      opacity: 0.7; }
 
 .p-search__list {
   float: left;
@@ -321,6 +385,53 @@ button {
     display: inline-block; }
     .p-search__list > li:nth-child(n+2) {
       margin-left: 10px; }
+    .p-search__list > li:hover {
+      opacity: 0.7; }
+  .p-search__list__img {
+    width: 100%; }
+
+@media (max-width: 640px) {
+  .p-search__wrapper {
+    padding-top: 68px;
+    padding-left: 5px;
+    padding-right: 5px; }
+  .p-search__title {
+    font-size: 16px;
+    padding-bottom: 8px; }
+  .p-search__contact {
+    float: none;
+    width: 100%;
+    padding-top: 35px; }
+    .p-search__contact__title {
+      font-size: 19px; }
+    .p-search__contact__form {
+      margin-top: 15px; }
+    .p-search__contact__input {
+      width: 204px;
+      font-size: 13px; }
+    .p-search__contact__tel {
+      text-align: center;
+      padding-top: 25px; }
+      .p-search__contact__tel__title {
+        font-size: 19px; }
+    .p-search__contact__time {
+      font-size: 13px; }
+    .p-search__contact__num {
+      font-size: 29px;
+      margin-top: 26px; }
+    .p-search__contact__inspect {
+      margin-top: 17px; }
+      .p-search__contact__inspect__img {
+        width: 100%; }
+  .p-search__list {
+    float: none;
+    width: 100%;
+    margin-top: 34px;
+    margin-left: 0; }
+    .p-search__list > li {
+      width: 32.8%; }
+      .p-search__list > li:nth-child(n+2) {
+        margin-left: 4px; } }
 
 .p-facility {
   background-color: #faffef; }
@@ -366,6 +477,19 @@ button {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto; }
+  @media (max-width: 640px) {
+    .p-facility__wrapper {
+      padding-bottom: 70px; }
+    .p-facility__list {
+      overflow: hidden;
+      height: 272px;
+      margin-top: 35px; }
+      .p-facility__list > li {
+        width: 47.9%; }
+    .p-facility__img {
+      width: 100%; }
+    .p-facility__category {
+      font-size: 11px; } }
 
 .p-news__wrapper {
   width: 100%;
@@ -435,6 +559,25 @@ button {
   font-size: 20px;
   color: #f80; }
 
+@media (max-width: 640px) {
+  .p-news__title {
+    font-size: 16px; }
+  .p-news__contents {
+    padding: 8px 10px; }
+    .p-news__contents__header {
+      padding-bottom: 0; }
+    .p-news__contents__inner {
+      width: 100%;
+      float: none; }
+    .p-news__contents__txtarea {
+      padding: 0; }
+    .p-news__contents__item {
+      width: 100%;
+      overflow: hidden;
+      margin: 0; }
+    .p-news__contents__img {
+      width: 100%; } }
+
 .p-info__wrapper {
   width: 100%;
   max-width: 984px;
@@ -480,6 +623,14 @@ button {
   .p-info__txt:hover {
     text-decoration: none; }
 
+@media (max-width: 640px) {
+  .p-info__inner {
+    padding: 8px 10px; }
+  .p-info__header {
+    padding: 0; }
+  .p-info__title {
+    font-size: 16px; } }
+
 .p-sitemap__wrapper {
   width: 100%;
   max-width: 984px;
@@ -512,26 +663,42 @@ button {
   height: 367px;
   border: 1px solid #3a6;
   background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/top/sm-bk01.jpg);
-  background-position: 100% 100%; }
+  background-position: 0 100%;
+  background-repeat: no-repeat; }
 
 .p-sitemap__company {
   height: 367px;
   border: 1px solid #8c5;
   background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/top/sm-bk02.jpg);
-  background-position: 100% 100%; }
+  background-position: 0 100%;
+  background-repeat: no-repeat; }
 
 .p-sitemap__recruit {
   height: 367px;
   border: 1px solid #0eA;
   background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/top/sm-bk03.jpg);
-  background-position: 100% 100%; }
+  background-position: 0 100%;
+  background-repeat: no-repeat; }
+
+@media (max-width: 640px) {
+  .p-sitemap__list > li {
+    width: 100%;
+    padding-left: 11px;
+    padding-right: 11px; }
+    .p-sitemap__list > li:nth-child(n+2) {
+      margin: 10px 0 0; }
+  .p-sitemap__charactor, .p-sitemap__company, .p-sitemap__recruit {
+    width: 100%; }
+  .p-sitemap__img {
+    width: 100%; } }
 
 .p-banner__wrapper {
   width: 100%;
   max-width: 984px;
   margin-top: 50px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  width: 984px; }
 
 .p-banner__inner {
   border: 1px solid #3a6; }
@@ -546,8 +713,23 @@ button {
   .p-banner__list > li {
     float: left; }
 
-.p-banner__img:hover {
-  opacity: 0.7; }
+.p-banner__link {
+  display: block;
+  text-align: center; }
+  .p-banner__link:hover {
+    opacity: 0.7; }
+
+@media (max-width: 640px) {
+  .p-banner__wrapper {
+    width: 100%; }
+  .p-banner__first {
+    float: none;
+    border: none; }
+  .p-banner__list {
+    width: 100%;
+    float: none; }
+    .p-banner__list > li {
+      float: none; } }
 
 .u-cf:before, .u-cf:after {
   clear: both;
