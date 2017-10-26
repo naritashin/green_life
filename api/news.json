@@ -3,20 +3,20 @@
     {
       "year": "2017",
       "month": "10",
-      "day": "24",
+      "date": "24",
       "facility": "メディス薮塚",
       "title": "太鼓まつりのお知らせ",
       "image": "http://www.greenlife-inc.co.jp/wp-content/uploads/2017/10/s_DSCN2308.jpg",
-      "contentUrl": "../../api/news_contents/taiko_fest.html"
+      "content": "隣接する第一病院にて開催されるイベントのお知らせです♪<br>秋のふれあい太鼓まつりが１１月４日土曜日の<br>午後２時から開催されます。<br>演目は輝け囃子、中山太鼓等々です。<br>１階外来ホールにての演奏になります。<br>皆様お気軽にご参加ください♪<br>"
     },
     {
       "year": "2017",
       "month": "10",
-      "day": "24",
+      "date": "24",
       "facility": "メディス吉岡",
       "title": "ランチの紹介です♪",
       "image": "http://www.greenlife-inc.co.jp/wp-content/uploads/2017/10/CIMG6034.jpg",
-      "contentUrl": "../../api/news_contents/lunchmenu.html"
+      "content": "本日のランチを紹介します<br>・ごはん<br>・すまし汁<br>・はんぺんフライ<br>・きのことトマトの和風サラダ<br>・くだもの<br>・ヨーグルト<br>【検食者の感想】はんぺんにチーズがサンドされていて美味しかったです♪介護職：松浦<br>とても美味しそうですね♡私も食欲がとまりません！<br>また吉岡の自慢の食事を紹介しますね♪<br>"
     }
   ]
 }

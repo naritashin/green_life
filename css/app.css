@@ -60,12 +60,14 @@ button {
 .header {
   width: 100%; }
   .header__logo {
-    width: 100%;
-    max-width: 980px;
+    width: 980px;
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
     height: 66px; }
+    @media (max-width: 640px) {
+      .header__logo {
+        width: 100%; } }
     .header__logo__gl {
       float: left; }
       .header__logo__gl:hover {
@@ -78,13 +80,15 @@ button {
     background-color: #eee;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2) inset; }
     .header__fsselect__wrapper {
-      width: 100%;
-      max-width: 980px;
+      width: 980px;
       margin-top: 0;
       margin-left: auto;
       margin-right: auto;
       padding-top: 4px;
       padding-bottom: 3px; }
+      @media (max-width: 640px) {
+        .header__fsselect__wrapper {
+          width: 100%; } }
     .header__fsselect__btn {
       display: inline-block;
       width: 80px;
@@ -97,11 +101,13 @@ button {
     background-image: url(http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/menu/nav_bk.png); }
     .header__nav__list {
       position: relative;
-      width: 100%;
-      max-width: 980px;
+      width: 980px;
       margin-top: 0;
       margin-left: auto;
       margin-right: auto; }
+      @media (max-width: 640px) {
+        .header__nav__list {
+          width: 100%; } }
       .header__nav__list > li {
         width: 196px;
         height: 87px;
@@ -135,10 +141,6 @@ button {
         color: #666;
         font-size: 14px;
         text-decoration: underline;
-        -webkit-transition: all 0.4s linear;
-        -moz-transition: all 0.4s linear;
-        -ms-transition: all 0.4s linear;
-        -o-transition: all 0.4s linear;
         transition: all 0.4s linear; }
         .header__nav__menu__link:hover {
           color: #fa4;
@@ -210,12 +212,27 @@ button {
       display: none; }
     .header__nav {
       background-image: none; }
+      .header__nav__menu {
+        position: unset;
+        width: 100%;
+        height: 100%; }
+        .header__nav__menu > li {
+          text-align: left;
+          background-color: #ccc;
+          border-bottom: 1px solid #999; }
+        .header__nav__menu__link {
+          color: #333;
+          font-size: 16px;
+          text-shadow: 0 0 1px #ccc; }
+          .header__nav__menu__link:hover {
+            color: #333;
+            background-color: #aaa; }
       .header__nav__list {
         display: none; }
         .header__nav__list > li {
           position: relative;
           width: 100%;
-          height: 49px;
+          height: 100%;
           background-color: none; }
       .header__nav__toggle {
         display: inline-block;
@@ -242,17 +259,22 @@ button {
         display: block; } }
 
 .footer__gotop {
-  width: 100%;
-  max-width: 980px;
+  width: 980px;
   margin-top: 58px;
   margin-left: auto;
   margin-right: auto;
   text-align: right; }
+  @media (max-width: 640px) {
+    .footer__gotop {
+      width: 100%; } }
   .footer__gotop__btn {
     display: inline-block;
     color: #151;
     font-size: 14px;
     text-decoration: underline; }
+    .footer__gotop__btn:hover {
+      text-decoration: none;
+      cursor: pointer; }
   .footer__gotop__img {
     display: inline-block;
     margin-left: 14px;
@@ -263,11 +285,13 @@ button {
   border-top: 4px solid #8c5;
   margin-top: 17px; }
   .footer__logo__inner {
-    width: 100%;
-    max-width: 980px;
+    width: 980px;
     margin-top: 0;
     margin-left: auto;
     margin-right: auto; }
+    @media (max-width: 640px) {
+      .footer__logo__inner {
+        width: 100%; } }
 
 .footer__link {
   display: inline-block;
@@ -320,24 +344,30 @@ button {
   background-color: #eee; }
   .p-keyvisual__wrapper {
     width: 100%;
-    max-width: 1100px;
     margin-top: 0;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    max-width: 1100px;
+    overflow: hidden; }
+    @media (max-width: 640px) {
+      .p-keyvisual__wrapper {
+        width: 100%; } }
   .p-keyvisual__list > li {
-    display: inline-block; }
+    float: left; }
     .p-keyvisual__list > li:hover {
       opacity: 0.7; }
   .p-keyvisual__img {
     width: 100%; }
 
 .p-search__wrapper {
-  width: 100%;
-  max-width: 980px;
+  width: 980px;
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   padding-top: 72px; }
+  @media (max-width: 640px) {
+    .p-search__wrapper {
+      width: 100%; } }
 
 .p-search__title {
   padding-bottom: 12px;
@@ -438,20 +468,22 @@ button {
     margin-top: 34px;
     margin-left: 0; }
     .p-search__list > li {
-      width: 32.8%; }
+      width: 32%; }
       .p-search__list > li:nth-child(n+2) {
         margin-left: 4px; } }
 
 .p-facility {
   background-color: #faffef; }
   .p-facility__wrapper {
-    width: 100%;
-    max-width: 980px;
+    width: 980px;
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 47px;
     padding-bottom: 89px; }
+    @media (max-width: 640px) {
+      .p-facility__wrapper {
+        width: 100%; } }
   .p-facility__title {
     width: 240px;
     margin: 0 auto;
@@ -493,6 +525,7 @@ button {
     margin-right: auto; }
   @media (max-width: 640px) {
     .p-facility__wrapper {
+      width: 100%;
       padding-bottom: 70px; }
     .p-facility__list {
       overflow: hidden;
@@ -506,12 +539,14 @@ button {
       font-size: 11px; } }
 
 .p-news__wrapper {
-  width: 100%;
-  max-width: 984px;
+  width: 984px;
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   padding-top: 50px; }
+  @media (max-width: 640px) {
+    .p-news__wrapper {
+      width: 100%; } }
 
 .p-news__contents {
   padding-top: 10px;
@@ -593,12 +628,14 @@ button {
       width: 100%; } }
 
 .p-info__wrapper {
-  width: 100%;
-  max-width: 984px;
+  width: 984px;
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   padding-top: 50px; }
+  @media (max-width: 640px) {
+    .p-info__wrapper {
+      width: 100%; } }
 
 .p-info__inner {
   border: 2px solid #8c5;
@@ -646,13 +683,15 @@ button {
     font-size: 16px; } }
 
 .p-sitemap__wrapper {
-  width: 100%;
-  max-width: 984px;
+  width: 984px;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 2px;
   padding-right: 2px; }
+  @media (max-width: 640px) {
+    .p-sitemap__wrapper {
+      width: 100%; } }
 
 .p-sitemap__list > li {
   float: left; }
@@ -707,12 +746,14 @@ button {
     width: 100%; } }
 
 .p-banner__wrapper {
-  width: 100%;
-  max-width: 984px;
+  width: 984px;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   width: 984px; }
+  @media (max-width: 640px) {
+    .p-banner__wrapper {
+      width: 100%; } }
 
 .p-banner__inner {
   border: 1px solid #3a6; }

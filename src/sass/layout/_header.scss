@@ -100,11 +100,7 @@
         color: #666;
         font-size: 14px;
         text-decoration: underline;
-        -webkit-transition: all 0.4s linear;
-           -moz-transition: all 0.4s linear;
-            -ms-transition: all 0.4s linear;
-             -o-transition: all 0.4s linear;
-                transition: all 0.4s linear;
+        transition: all 0.4s linear;
 
         &:hover {
           color: #fa4;
@@ -234,12 +230,35 @@
     &__nav {
       background-image: none;
 
+      &__menu {
+        position: unset;
+        width: 100%;
+        height: 100%;
+
+        & > li {
+          text-align: left;
+          background-color: #ccc;
+          border-bottom: 1px solid #999;
+        }
+
+        &__link {
+          color: #333;
+          font-size: 16px;
+          text-shadow: 0 0 1px #ccc;
+
+          &:hover {
+            color: #333;
+            background-color: #aaa;
+          }
+        }
+      }
+
       &__list {
         display: none;
         & > li {
           position: relative;
           width: 100%;
-          height: 49px;
+          height: 100%;
           background-color: none;
         }
       }

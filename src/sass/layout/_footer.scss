@@ -8,6 +8,11 @@
       color: #151;
       font-size: 14px;
       text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+      }
     }
 
     &__img {

@@ -1,9 +1,12 @@
 @mixin wrapper($width, $mt) {
-  width: 100%;
-  max-width: $width;
+  width: $width;
   margin: {
     top: $mt;
     left: auto;
     right: auto;
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
   }
 }
