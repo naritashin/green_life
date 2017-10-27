@@ -5,7 +5,42 @@
     @include wrapper($maxWidth, 40px);
     padding: {
       top: 47px;
-      bottom:89px;
+      bottom:23px;
+    }
+  }
+
+  &__slide {
+    &__wrapper {
+    max-width: 980px;
+    overflow: hidden;
+    }
+
+    &__btn {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #fea;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #f80;
+      }
+
+      &__wrapper {
+        text-align: center;
+      }
+
+      &__list {
+        display: inline-block;
+        margin-top: 34px;
+        text-align: center;
+
+        & > li {
+          float: left;
+
+          margin: 0 7px;
+        }
+      }
     }
   }
 
@@ -18,8 +53,6 @@
   }
 
   &__list {
-    width: 980px;
-    overflow: hidden;
     margin: {
       top: 30px;
     }
@@ -78,15 +111,13 @@
     }
 
     &__list {
-      overflow: hidden;
-      height: 272px;
       margin: {
         top: 35px;
       }
+    }
 
-      & > li {
-        width: 47.9%;
-      }
+    &__item {
+      width: 100%;
     }
 
     &__img {
@@ -97,4 +128,8 @@
       font-size: 11px;
     }
   }
+}
+
+.is-facility-active {
+  background-color: #f80;
 }
