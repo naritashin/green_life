@@ -1,6 +1,23 @@
 $(function() {
+  ajax();
+
   var $fontSizeDefault = $('.js-default'),
-  $fontSizeLarge = $('.js-large');
+      $fontSizeLarge = $('.js-large'),
+
+      $slideView = $('.p-keyvisual__wrapper'),
+      $slideList = $('.p-keyvisual__list'),
+      $slideWrap = $('.slide__wrap'),
+      slideViewWidth = $slideView.width(),
+      slideListLen = $slideList.find('li').length,
+      leftValue = 0,
+      i = 0,
+
+        $facilitySlideView,
+        $facilitySlideList,
+        facilitySlideViewWidth,
+        facilitySlideListLen;
+
+  createKeyvisualBtn();
 
   $fontSizeDefault.on({
     'mouseenter': function() {
@@ -67,54 +84,125 @@ $(function() {
     $(this).next().slideToggle();
   });
 
+  $('.js-totop').on('click', function() {
+    $('html').animate({ scrollTop: 0}, 500);
+  });
 
-  $.ajax({
-    url: '../../api/facilities.json',
-    dataType: 'json',
-  })
-  .done(function(data) {
-    showFacilities(data);
 
-    if ($(window).width() < 640) {
-      setFacilitySlideSmall();
-    } else {
-      setFacilitySlide();
+  $('.p-keyvisual__img').css({
+    width: slideViewWidth
+  });
+  $slideList.css({
+    width: slideViewWidth*slideListLen
+  });
+  $slideWrap.css({
+    width: slideViewWidth*slideListLen*2
+  });
+
+  setInterval(function() {
+    keyvisualSlider();
+  }, 7000);
+
+  $('.p-keyvisual__slide__btn').on('click', function() {
+    current = $(this);
+    arr = keyvisualMoveSlide(leftValue, current);
+
+    i= arr['int'];
+    leftValue = arr['value'];
+  });
+
+  $(window).on('resize', function() {
+    slideViewWidth = $slideView.width();
+    firstSlideList = $slideWrap.children().first();
+
+    $('.p-keyvisual__img').css({width: slideViewWidth});
+    $slideWrap.css({width: slideViewWidth * slideListLen * 2})
+    firstSlideList.css({
+      width: slideViewWidth * slideListLen,
+      marginLeft: '-' + i * slideViewWidth + 'px'
+    });
+    leftValue = i * slideViewWidth;
+  });
+
+  $(window).on('resize', function() {
+    if ($(window).width()+15 < 640) {
+      var nowNum = $('.is-facility-active').parent().val();
+
+      facilitySlideViewWidth = $facilitySlideView.width();
+
+      $facilitySlide.css({
+        width: facilitySlideViewWidth/2
+      });
+      $facilitySlideList.css({
+        width: facilitySlideViewWidth * facilitySlideListLen
+      });
+
+      $facilitySlideList.css({
+        marginLeft: '-'+ facilitySlideViewWidth * nowNum +'px'
+      });
     }
-  })
-  .fail(function() {
-    console.log("error");
-  })
-  .always(function() {
-    console.log("complete");
   });
 
-  $.ajax({
-    url: '../../api/news.json',
-    dataType: 'json',
-  })
-  .done(function(news) {
-    showNews(news);
-  })
-  .fail(function() {
-    console.log("error");
-  })
-  .always(function() {
-    console.log("complete");
+  $(window).on('resize', function() {
+    nowNum = $('.is-facility-active').parent().val();
+
+    if ($(window).width()+16 < 640) {
+      setFacilitySlideSmall(nowNum);
+    } else {
+      nowNum = nowNum < 5 ? nowNum : 0;
+      setFacilitySlide(nowNum);
+    }
   });
 
-  $.ajax({
-    url: '../../api/infomation.json',
-    dataType: 'json',
-  })
-  .done(function(infos) {
-    showInfos(infos);
-  })
-  .fail(function() {
-    console.log("error");
-  })
-  .always(function() {
-    console.log("complete");
-  });
+  function ajax() {
+    $.ajax({
+      url: '../../api/facilities.json',
+      dataType: 'json',
+    })
+    .done(function(data) {
+      showFacilities(data);
+
+      if ($(window).width()+16 < 640) {
+        setFacilitySlideSmall();
+      } else {
+        setFacilitySlide();
+      }
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
+    $.ajax({
+      url: '../../api/news.json',
+      dataType: 'json',
+    })
+    .done(function(news) {
+      showNews(news);
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
+    $.ajax({
+      url: '../../api/infomation.json',
+      dataType: 'json',
+    })
+    .done(function(infos) {
+      showInfos(infos);
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+  }
 
   function showFacilities(data) {
     data.facilities.forEach(function(facilities) {
@@ -175,35 +263,11 @@ $(function() {
     });
   }
 
-  $('.js-totop').on('click', function() {
-    $('html').animate({ scrollTop: 0}, 500);
-  });
-
-  var $slideView = $('.p-keyvisual__wrapper'),
-      $slideList = $('.p-keyvisual__list'),
-      $slideWrap = $('.slide__wrap'),
-      slideViewWidth = $slideView.width(),
-      slideListLen = $slideList.find('li').length,
-      leftValue = 0,
-      i = 0;
-
-
-  $('.p-keyvisual__img').css({
-    width: slideViewWidth
-  });
-  $slideList.css({
-    width: slideViewWidth*slideListLen
-  });
-  $slideWrap.css({
-    width: slideViewWidth*slideListLen*2
-  });
-
-  setInterval(function() {
+  function keyvisualSlider() {
     var firstSlideList = $slideWrap.children().first();
 
-    if (leftValue == $slideList.width()-slideViewWidth) {
-
-      $slideList.clone(true)
+    if (leftValue == firstSlideList.width()-slideViewWidth) {
+      firstSlideList.clone(true)
       .css({marginLeft: 0})
       .appendTo($slideWrap);
 
@@ -229,15 +293,13 @@ $(function() {
           .first()
           .children()
           .addClass('is-keyvisual-active');
-
         }
       );
-
     } else {
-
       leftValue += slideViewWidth;
       i += 1;
-      $('.is-keyvisual-active').removeClass('is-keyvisual-active')
+      $('.is-keyvisual-active')
+      .removeClass('is-keyvisual-active')
       .parent()
       .next()
       .children()
@@ -248,73 +310,35 @@ $(function() {
         marginLeft: '-'+ leftValue +'px'
       });
     }
-  }, 7000);
-
-  $('.p-keyvisual__slide__btn__list').children().remove();
-  for(var num = 0; num < slideListLen; num++) {
-    var active = num == 0 ? 'is-keyvisual-active' : '',
-        item =
-      '<li value="'+ num +'">'+
-        '<div class="p-keyvisual__slide__btn '+ active +'"></div>'+
-      '</li>';
-
-    $('.p-keyvisual__slide__btn__list').append(item);
   }
 
-  $('.p-keyvisual__slide__btn').on('click', function() {
-    var firstSlideList = $slideWrap.children().first();
+  function createKeyvisualBtn() {
+    $('.p-keyvisual__slide__btn__list').children().remove();
+    for(var num = 0; num < slideListLen; num++) {
+      var active = num == 0 ? 'is-keyvisual-active' : '',
+          item =
+        '<li value="'+ num +'">'+
+          '<div class="p-keyvisual__slide__btn '+ active +'"></div>'+
+        '</li>';
 
-    num = $(this).parent().val();
-    i = num;
-    leftValue = slideViewWidth * num;
+      $('.p-keyvisual__slide__btn__list').append(item);
+    }
+  }
 
-    console.log(leftValue);
+  function keyvisualMoveSlide(value, current) {
+    var num = current.parent().val(),
+        value = slideViewWidth * num,
+        arr = {int: num, value: value};
 
-    firstSlideList.animate({
-      marginLeft: '-'+ leftValue +'px'
+    $slideWrap.children().first()
+    .animate({
+      marginLeft: '-'+ value +'px'
     });
     $('.p-keyvisual__slide__btn').removeClass('is-keyvisual-active');
-    $(this).addClass('is-keyvisual-active');
+    current.addClass('is-keyvisual-active');
 
-  });
-
-  // $('.p-keyvisual__list li').each(function (index, slide) {
-  //   $(slide).css({left: leftValue});
-  //   leftValue += $(slide).width();
-  //   console.log(leftValue);
-  // });
-
-  // function slide() {
-  //   $('.p-keyvisual__list').css({left: 0});
-  //   $('.p-keyvisual__list').animate({left: '-'+ (slideImgWidth) +'px'}, 500);
-  //   setTimeout(function() {
-  //     slide();
-  //   }, 7000);
-  // };
-
-  // setInterval(function() {
-  //   $('.p-keyvisual__list').stop().animate({marginLeft: '-='+ slideViewWith +'px'});
-  //   var firstSlide = $('.p-keyvisual__list').children().first();
-  //   var lastSlide =  $('.p-keyvisual__list').children().last();
-  //   firstSlide.clone(true).css({left: parseInt(lastSlide.css('left')) + slideViewWith}).appendTo($('.p-keyvisual__list'));
-  //   firstSlide.remove();
-  // }, 3000);
-
-  $(window).on('resize', function() {
-    slideViewWidth = $slideView.width();
-    slideListWidth = $slideList.css({width: slideViewWidth*slideListLen});
-
-  $('.p-keyvisual__img').css({width: slideViewWidth});
-  $slideList.css({width: slideViewWidth * slideListLen});
-  $slideWrap.css({width: slideViewWidth * slideListLen * 2})
-  $slideList.css({marginLeft: '-' + i * slideViewWidth + 'px'});
-  leftValue = i * slideViewWidth;
-  });
-
-    var $facilitySlideView,
-        $facilitySlideList,
-        facilitySlideViewWidth,
-        facilitySlideListLen;
+    return arr;
+  }
 
   function setFacilitySlideSmall(number = 0) {
     $facilitySlideView = $('.p-facility__slide__wrapper');
@@ -329,21 +353,11 @@ $(function() {
     });
 
     $facilitySlideList.css({
-      width: facilitySlideViewWidth * facilitySlideListLen
+      width: facilitySlideViewWidth * facilitySlideListLen,
+      marginLeft: '-'+ facilitySlideViewWidth * nowNum +'px'
     });
 
-    var facilityBtnLen = $facilitySlideList.width()/facilitySlideViewWidth/2;
-    $('.p-facility__slide__btn__list').children().remove();
-
-    for(var num = 0; num < facilityBtnLen; num++) {
-      var active = num == nowNum ? 'is-facility-active' : '';
-      var item =
-        '<li value="'+ num +'">'+
-          '<div class="p-facility__slide__btn '+ active +'"></div>'+
-        '</li>';
-
-      $('.p-facility__slide__btn__list').append(item);
-    }
+    createFacilityBtn($facilitySlideList, facilitySlideViewWidth, 2);
 
     $('.p-facility__slide__btn').on('click', function() {
       num = $(this).parent().val();
@@ -353,27 +367,6 @@ $(function() {
       });
       $('.p-facility__slide__btn').removeClass('is-facility-active');
       $(this).addClass('is-facility-active');
-    });
-
-    $(window).on('resize', function() {
-
-      if ($(window).width()+16 < 640) {
-
-        var nowNum = $('.is-facility-active').parent().val();
-
-        facilitySlideViewWidth = $facilitySlideView.width();
-
-        $facilitySlide.css({
-          width: facilitySlideViewWidth/2
-        });
-        $facilitySlideList.css({
-          width: facilitySlideViewWidth * facilitySlideListLen
-        });
-
-        $facilitySlideList.css({
-          marginLeft: '-'+ facilitySlideViewWidth * nowNum +'px'
-        });
-      }
     });
   }
 
@@ -386,27 +379,15 @@ $(function() {
     nowNum = number;
 
     $facilitySlideList.css({
-      width: facilitySlideViewWidth * facilitySlideListLen
+      width: facilitySlideViewWidth * facilitySlideListLen,
+      marginLeft: '-'+ facilitySlideViewWidth * nowNum +'px'
     });
 
-
-    console.log($facilitySlide);
     $facilitySlide.css({
       width: 245
     });
 
-    var facilityBtnLen = $facilitySlideList.width()/facilitySlideViewWidth/4;
-    $('.p-facility__slide__btn__list').children().remove();
-
-    for(var num = 0; num < facilityBtnLen; num++) {
-      var active = num == nowNum ? 'is-facility-active' : '';
-      var item =
-        '<li value="'+ num +'">'+
-          '<div class="p-facility__slide__btn '+ active +'"></div>'+
-        '</li>';
-
-      $('.p-facility__slide__btn__list').append(item);
-    }
+    createFacilityBtn($facilitySlideList, facilitySlideViewWidth, 4);
 
     $('.p-facility__slide__btn').on('click', function() {
       num = $(this).parent().val();
@@ -417,13 +398,20 @@ $(function() {
     });
   }
 
-  $(window).on('resize', function() {
-    nowNum = $('.is-facility-active').parent().val();
+  function createFacilityBtn(slideList, slideViewWidth, slideNum) {
+    var facilityBtnLen = slideList.width()/slideViewWidth/slideNum,
+        $facilitySlideBtnList = $('.p-facility__slide__btn__list');
 
-    if ($(window).width()+16 < 640) {
-      setFacilitySlideSmall(nowNum);
-    } else {
-      setFacilitySlide(nowNum);
+    $facilitySlideBtnList.children().remove();
+
+    for(var num = 0; num < facilityBtnLen; num++) {
+      var active = num == nowNum ? 'is-facility-active' : '';
+      var item =
+        '<li value="'+ num +'">'+
+          '<div class="p-facility__slide__btn '+ active +'"></div>'+
+        '</li>';
+
+      $facilitySlideBtnList.append(item);
     }
-  });
+  }
 });
