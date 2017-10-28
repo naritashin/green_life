@@ -122,7 +122,7 @@ $(function() {
         '<li>'+
           '<figure class="p-facility__item">'+
             '<a href="">'+
-              '<img src="'+ facilities.img +'" alt="" class="p-facility__img">'+
+              '<img src="'+ facilities.img +'" alt="'+ facilities.name +'" class="p-facility__img">'+
             '</a>'+
           '</figure>'+
           '<a href="" class="p-facility__link js-fs">'+ facilities.name +'<img src="http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/top/btn_link.png" alt="" class="p-facility__link__btn">'+
@@ -188,10 +188,15 @@ $(function() {
       i = 0;
 
 
-  $('.p-keyvisual__img').css({width: slideViewWidth});
-  $slideList.css({width: slideViewWidth*slideListLen});
-  $slideWrap.css({width: slideViewWidth*slideListLen*2})
-
+  $('.p-keyvisual__img').css({
+    width: slideViewWidth
+  });
+  $slideList.css({
+    width: slideViewWidth*slideListLen
+  });
+  $slideWrap.css({
+    width: slideViewWidth*slideListLen*2
+  });
 
   setInterval(function() {
     var firstSlideList = $slideWrap.children().first();
@@ -205,6 +210,12 @@ $(function() {
       leftValue += slideViewWidth;
       i += 1;
 
+      $('.is-keyvisual-active').removeClass('is-keyvisual-active')
+      .parent()
+      .next()
+      .children()
+      .addClass('is-keyvisual-active');
+
       firstSlideList.stop()
       .animate({marginLeft: '-'+ leftValue +'px'},
         500,
@@ -212,24 +223,37 @@ $(function() {
           firstSlideList.remove();
           leftValue = 0;
           i = 0;
+          $('.is-keyvisual-active').removeClass('is-keyvisual-active');
+          $('.p-keyvisual__slide__btn__list')
+          .children()
+          .first()
+          .children()
+          .addClass('is-keyvisual-active');
+
         }
       );
 
     } else {
 
-    leftValue += slideViewWidth;
-    i += 1;
+      leftValue += slideViewWidth;
+      i += 1;
+      $('.is-keyvisual-active').removeClass('is-keyvisual-active')
+      .parent()
+      .next()
+      .children()
+      .addClass('is-keyvisual-active');
 
       firstSlideList.stop()
-      .animate({marginLeft: '-'+ leftValue +'px'});
-
+      .animate({
+        marginLeft: '-'+ leftValue +'px'
+      });
     }
   }, 7000);
 
   $('.p-keyvisual__slide__btn__list').children().remove();
   for(var num = 0; num < slideListLen; num++) {
-    var active = num == 0 ? 'is-keyvisual-active' : '';
-    var item =
+    var active = num == 0 ? 'is-keyvisual-active' : '',
+        item =
       '<li value="'+ num +'">'+
         '<div class="p-keyvisual__slide__btn '+ active +'"></div>'+
       '</li>';
@@ -238,16 +262,20 @@ $(function() {
   }
 
   $('.p-keyvisual__slide__btn').on('click', function() {
-    slideViewWidth = $slideView.width();
-    num = $(this).parent().val();
+    var firstSlideList = $slideWrap.children().first();
 
+    num = $(this).parent().val();
+    i = num;
     leftValue = slideViewWidth * num;
 
-    $slideList.animate({marginLeft: '-'+ leftValue +'px'});
+    console.log(leftValue);
+
+    firstSlideList.animate({
+      marginLeft: '-'+ leftValue +'px'
+    });
     $('.p-keyvisual__slide__btn').removeClass('is-keyvisual-active');
     $(this).addClass('is-keyvisual-active');
 
-    i = num;
   });
 
   // $('.p-keyvisual__list li').each(function (index, slide) {
@@ -288,53 +316,13 @@ $(function() {
         facilitySlideViewWidth,
         facilitySlideListLen;
 
-  function setFacilitySlide(number = 0) {
-    $facilitySlideView = $('.p-facility__slide__wrapper'),
-    $facilitySlideList = $('.p-facility__list'),
-    $facilitySlide = $('.p-facility__list li'),
-    facilitySlideViewWidth = $facilitySlideView.width(),
+  function setFacilitySlideSmall(number = 0) {
+    $facilitySlideView = $('.p-facility__slide__wrapper');
+    $facilitySlideList = $('.p-facility__list');
+    $facilitySlide = $('.p-facility__list').children('li');
+    facilitySlideViewWidth = $facilitySlideView.width();
     facilitySlideListLen = $facilitySlideList.find('li').length;
     nowNum = number;
-
-    $facilitySlide.css({
-      width: facilitySlideViewWidth/4
-    });
-
-console.log($facilitySlide);
-
-    $facilitySlideList.css({width: facilitySlideViewWidth * facilitySlideListLen});
-
-    var facilityBtnLen = $facilitySlideList.width()/facilitySlideViewWidth/4;
-
-    $('.p-facility__slide__btn__list').children().remove();
-    for(var num = 0; num < facilityBtnLen; num++) {
-      var active = num == nowNum ? 'is-facility-active' : '';
-      var item =
-        '<li value="'+ num +'">'+
-          '<div class="p-facility__slide__btn '+ active +'"></div>'+
-        '</li>';
-
-      $('.p-facility__slide__btn__list').append(item);
-    }
-
-    $('.p-facility__slide__btn').on('click', function() {
-      num = $(this).parent().val();
-
-      $facilitySlideList.animate({marginLeft: '-'+ facilitySlideViewWidth * num +'px'});
-      $('.p-facility__slide__btn').removeClass('is-facility-active');
-      $(this).addClass('is-facility-active');
-    });
-  }
-
-  function setFacilitySlideSmall(number = 0) {
-    $facilitySlideView = $('.p-facility__slide__wrapper'),
-    $facilitySlideList = $('.p-facility__list'),
-    $facilitySlide = $('.p-facility__list li'),
-    facilitySlideViewWidth = $facilitySlideView.width(),
-    facilitySlideListLen = $facilitySlideList.find('li').length,
-    nowNum = number;
-
-    $('.p-facility__img').css({width: $('.p-facility__item')});
 
     $facilitySlide.css({
       width: facilitySlideViewWidth/2
@@ -345,8 +333,8 @@ console.log($facilitySlide);
     });
 
     var facilityBtnLen = $facilitySlideList.width()/facilitySlideViewWidth/2;
-
     $('.p-facility__slide__btn__list').children().remove();
+
     for(var num = 0; num < facilityBtnLen; num++) {
       var active = num == nowNum ? 'is-facility-active' : '';
       var item =
@@ -368,28 +356,71 @@ console.log($facilitySlide);
     });
 
     $(window).on('resize', function() {
-      var nowNum = $('.is-facility-active').parent().val();
 
-      facilitySlideViewWidth = $facilitySlideView.width();
+      if ($(window).width()+16 < 640) {
 
-      $('.p-facility__img').css({width: $('.p-facility__item')});
-      $facilitySlide.css({
-        width: facilitySlideViewWidth/2
-      });
-      $facilitySlideList.css({
-        width: facilitySlideViewWidth * facilitySlideListLen
-      });
+        var nowNum = $('.is-facility-active').parent().val();
 
-      $facilitySlideList.css({
-        marginLeft: '-'+ facilitySlideViewWidth * nowNum +'px'
-      });
+        facilitySlideViewWidth = $facilitySlideView.width();
+
+        $facilitySlide.css({
+          width: facilitySlideViewWidth/2
+        });
+        $facilitySlideList.css({
+          width: facilitySlideViewWidth * facilitySlideListLen
+        });
+
+        $facilitySlideList.css({
+          marginLeft: '-'+ facilitySlideViewWidth * nowNum +'px'
+        });
+      }
+    });
+  }
+
+  function setFacilitySlide(number = 0) {
+    $facilitySlideView = $('.p-facility__slide__wrapper');
+    $facilitySlideList = $('.p-facility__list');
+    $facilitySlide = $('.p-facility__list li');
+    facilitySlideViewWidth = $facilitySlideView.width();
+    facilitySlideListLen = $facilitySlideList.find('li').length;
+    nowNum = number;
+
+    $facilitySlideList.css({
+      width: facilitySlideViewWidth * facilitySlideListLen
+    });
+
+
+    console.log($facilitySlide);
+    $facilitySlide.css({
+      width: 245
+    });
+
+    var facilityBtnLen = $facilitySlideList.width()/facilitySlideViewWidth/4;
+    $('.p-facility__slide__btn__list').children().remove();
+
+    for(var num = 0; num < facilityBtnLen; num++) {
+      var active = num == nowNum ? 'is-facility-active' : '';
+      var item =
+        '<li value="'+ num +'">'+
+          '<div class="p-facility__slide__btn '+ active +'"></div>'+
+        '</li>';
+
+      $('.p-facility__slide__btn__list').append(item);
+    }
+
+    $('.p-facility__slide__btn').on('click', function() {
+      num = $(this).parent().val();
+
+      $facilitySlideList.animate({marginLeft: '-'+ facilitySlideViewWidth * num +'px'});
+      $('.p-facility__slide__btn').removeClass('is-facility-active');
+      $(this).addClass('is-facility-active');
     });
   }
 
   $(window).on('resize', function() {
     nowNum = $('.is-facility-active').parent().val();
 
-    if ($(window).width() < 640) {
+    if ($(window).width()+16 < 640) {
       setFacilitySlideSmall(nowNum);
     } else {
       setFacilitySlide(nowNum);

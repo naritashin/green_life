@@ -24,8 +24,8 @@
 
   &__slide {
     &__btn {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background-color: #fff;
       border: 1px solid #3a6;
@@ -35,13 +35,24 @@
         background-color: #3a6;
       }
 
-
+      &__wrapper {
+        position: relative;
+        padding-bottom: 35%;
+      }
 
       &__list {
+        position: absolute;
+        top: 85%;
+        left:50%;
         display: inline-block;
-        text-align: center;
+        margin-left: -15%;
+        z-index: 10;
         & > li {
           float: left;
+
+          &:nth-child(n+2) {
+            margin-left: 12px;
+          }
         }
       }
     }
