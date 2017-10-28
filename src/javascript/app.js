@@ -282,7 +282,7 @@ $(function() {
 
       firstSlideList.stop()
       .animate({marginLeft: '-'+ leftValue +'px'},
-        500,
+        700,
         function() {
           firstSlideList.remove();
           leftValue = 0;
@@ -308,7 +308,7 @@ $(function() {
       firstSlideList.stop()
       .animate({
         marginLeft: '-'+ leftValue +'px'
-      });
+      }, 700);
     }
   }
 
