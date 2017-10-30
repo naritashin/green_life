@@ -670,6 +670,7 @@ button {
       overflow: hidden;
       margin: 0; }
     .p-news__contents__img {
+      margin-top: 4px;
       width: 100%; } }
 
 .is-more {

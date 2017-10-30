@@ -12,10 +12,10 @@ $(function() {
       leftValue = 0,
       i = 0,
 
-        $facilitySlideView,
-        $facilitySlideList,
-        facilitySlideViewWidth,
-        facilitySlideListLen;
+      $facilitySlideView,
+      $facilitySlideList,
+      facilitySlideViewWidth,
+      facilitySlideListLen;
 
   createKeyvisualBtn();
 
@@ -88,7 +88,6 @@ $(function() {
     $('html').animate({ scrollTop: 0}, 500);
   });
 
-
   $('.p-keyvisual__img').css({
     width: slideViewWidth
   });
@@ -113,18 +112,15 @@ $(function() {
 
   $(window).on('resize', function() {
     slideViewWidth = $slideView.width();
-    firstSlideList = $slideWrap.children().first();
 
     $('.p-keyvisual__img').css({width: slideViewWidth});
     $slideWrap.css({width: slideViewWidth * slideListLen * 2})
-    firstSlideList.css({
+    $slideWrap.children().first().css({
       width: slideViewWidth * slideListLen,
       marginLeft: '-' + i * slideViewWidth + 'px'
     });
     leftValue = i * slideViewWidth;
-  });
 
-  $(window).on('resize', function() {
     if ($(window).width()+15 < 640) {
       var nowNum = $('.is-facility-active').parent().val();
 
@@ -145,16 +141,22 @@ $(function() {
 
   $(window).on('resize', function() {
     nowNum = $('.is-facility-active').parent().val();
+    $facilitySlideBtnList = $('.p-facility__slide__btn__list');
 
-    if ($(window).width()+16 < 640) {
+    if ($facilitySlideBtnList.hasClass('is-n4') && $(window).width()+15 <= 640) {
+      nowNum *= 2;
+
+      $facilitySlideBtnList.removeClass('is-n4');
       setFacilitySlideSmall(nowNum);
-    } else {
-      nowNum = nowNum < 5 ? nowNum : 0;
+    } else if ($facilitySlideBtnList.hasClass('is-n2') && $(window).width()+15 > 640) {
+      nowNum = Math.floor(nowNum/2);
+
+      $facilitySlideBtnList.removeClass('is-n2');
       setFacilitySlide(nowNum);
     }
   });
-  // .p-news__contents__openner
-  $('.p-news__contents__list').on('click', 'a', function() {
+
+  $('.p-news__contents__list').on('click', '.p-news__contents__openner', function() {
     $(this).toggleClass('is-open');
     $(this).parent()
     .prev()
@@ -315,7 +317,8 @@ $(function() {
       firstSlideList.stop()
       .animate({
         marginLeft: '-'+ leftValue +'px'
-      }, 700);
+      },
+      700);
     }
   }
 
@@ -340,7 +343,8 @@ $(function() {
     $slideWrap.children().first()
     .animate({
       marginLeft: '-'+ value +'px'
-    });
+    },
+    700);
     $('.p-keyvisual__slide__btn').removeClass('is-keyvisual-active');
     current.addClass('is-keyvisual-active');
 
@@ -420,5 +424,6 @@ $(function() {
 
       $facilitySlideBtnList.append(item);
     }
+    $facilitySlideBtnList.addClass('is-n'+slideNum);
   }
 });
