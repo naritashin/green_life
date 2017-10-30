@@ -54,6 +54,7 @@
     &__list {
       position: relative;
       @include wrapper($maxWidth, 0);
+      z-index: 20;
 
       & > li {
         width: 196px;
