@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -348,6 +349,7 @@ button {
     margin-left: auto;
     margin-right: auto;
     max-width: 1100px;
+    text-align: center;
     overflow: hidden; }
     @media (max-width: 640px) {
       .p-keyvisual__wrapper {
@@ -356,11 +358,12 @@ button {
     float: left; }
     .p-keyvisual__list > li {
       float: left; }
-      .p-keyvisual__list > li:hover {
-        opacity: 0.7; }
   .p-keyvisual__img {
     max-width: 1100px; }
+    .p-keyvisual__img:hover {
+      opacity: 0.7; }
   .p-keyvisual__slide__btn {
+    position: relative;
     width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -369,15 +372,10 @@ button {
     .p-keyvisual__slide__btn:hover {
       cursor: pointer;
       background-color: #3a6; }
-    .p-keyvisual__slide__btn__wrapper {
-      position: relative;
-      padding-bottom: 35%; }
     .p-keyvisual__slide__btn__list {
-      position: absolute;
-      top: 85%;
-      left: 50%;
+      padding-bottom: 18px;
+      margin-top: -36px;
       display: inline-block;
-      margin-left: -15%;
       z-index: 10; }
       .p-keyvisual__slide__btn__list > li {
         float: left; }
@@ -575,8 +573,6 @@ button {
       padding-bottom: 70px; }
     .p-facility__list {
       margin-top: 35px; }
-      .p-facility__list > li {
-        width: 50%; }
     .p-facility__item {
       width: 100%; }
     .p-facility__img {
@@ -640,13 +636,13 @@ button {
     margin-top: 16px;
     font-size: 16px; }
   .p-news__contents__openner {
-    display: block;
+    display: inline-block;
     color: #f80;
     margin-top: 26px;
     font-size: 16px;
-    text-align: right;
     text-decoration: underline; }
     .p-news__contents__openner:hover {
+      cursor: pointer;
       text-decoration: none; }
   .p-news__contents__item {
     float: left;
@@ -675,6 +671,15 @@ button {
       margin: 0; }
     .p-news__contents__img {
       width: 100%; } }
+
+.is-more {
+  height: 100%; }
+
+.is-open {
+  font-size: 0; }
+  .is-open::after {
+    font-size: 16px;
+    content: "・・・閉じる"; }
 
 .p-info__wrapper {
   width: 984px;

@@ -4,6 +4,7 @@
   &__wrapper {
     @include wrapper(100%, 0);
     max-width: 1100px;
+    text-align: center;
     overflow: hidden;
   }
 
@@ -11,19 +12,20 @@
     float: left;
     & > li {
       float: left;
-
-      &:hover {
-        opacity: 0.7;
-      }
     }
   }
 
   &__img {
     max-width: 1100px;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
   &__slide {
     &__btn {
+      position: relative;
       width: 18px;
       height: 18px;
       border-radius: 50%;
@@ -35,17 +37,12 @@
         background-color: #3a6;
       }
 
-      &__wrapper {
-        position: relative;
-        padding-bottom: 35%;
-      }
-
       &__list {
-        position: absolute;
-        top: 85%;
-        left:50%;
+        padding: {
+          bottom: 18px;
+        }
+        margin-top: -36px;
         display: inline-block;
-        margin-left: -15%;
         z-index: 10;
         & > li {
           float: left;

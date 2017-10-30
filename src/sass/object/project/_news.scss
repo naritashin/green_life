@@ -95,7 +95,7 @@
     }
 
     &__openner {
-      display: block;
+      display: inline-block;
       color: #f80;
       margin: {
         top: 26px;
@@ -104,11 +104,11 @@
         size: 16px;
       }
       text: {
-        align: right;
         decoration: underline;
       }
 
       &:hover {
+        cursor: pointer;
         text-decoration: none;
       }
     }
@@ -158,5 +158,22 @@
         width: 100%;
       }
     }
+  }
+}
+
+.is-more {
+  height: 100%;
+}
+
+.is-open {
+  font: {
+    size: 0;
+  }
+
+  &::after {
+    font: {
+      size: 16px;
+    }
+    content: "・・・閉じる";
   }
 }

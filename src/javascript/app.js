@@ -153,6 +153,13 @@ $(function() {
       setFacilitySlide(nowNum);
     }
   });
+  // .p-news__contents__openner
+  $('.p-news__contents__list').on('click', 'a', function() {
+    $(this).toggleClass('is-open');
+    $(this).parent()
+    .prev()
+    .toggleClass('is-more');
+  });
 
   function ajax() {
     $.ajax({
@@ -237,7 +244,7 @@ $(function() {
               '<p class="p-news__contents__txt js-fs">'+ news.content +
               '</p>'+
               '<p class="u-align-right">'+
-                '<a href="" class="p-news__contents__openner js-more">・・・続きを読む</a>'+
+                '<a class="p-news__contents__openner">・・・続きを読む</a>'+
               '</p>'+
             '</div>'+
           '</div>'+
