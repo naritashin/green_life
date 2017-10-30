@@ -421,6 +421,8 @@ button {
     margin-bottom: 2px; }
   .p-search__contact__btn {
     margin-left: 10px; }
+    .p-search__contact__btn:hover {
+      cursor: pointer; }
   .p-search__contact__tel {
     border-top: 2px solid #ce7;
     margin-top: 18px;

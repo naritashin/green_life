@@ -48,6 +48,10 @@
 
     &__btn {
       margin-left: 10px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     &__tel {
