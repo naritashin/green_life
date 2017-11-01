@@ -5,6 +5,7 @@ $(function() {
       $slideView = $('.p-keyvisual__wrapper'),
       $slideList = $('.p-keyvisual__list'),
       $slideWrap = $('.slide__wrap'),
+      $slideImg = $('.p-keyvisual__img'),
       slideViewWidth = $slideView.width(),
       slideListLen = $slideList.find('li').length,
       leftValue = 0,
@@ -86,7 +87,7 @@ $(function() {
     $('html').animate({ scrollTop: 0}, 500);
   });
 
-  $('.p-keyvisual__img').css({
+  $slideImg.css({
     width: slideViewWidth
   });
   $slideList.css({
@@ -111,7 +112,7 @@ $(function() {
   $(window).on('resize', function() {
     slideViewWidth = $slideView.width();
 
-    $('.p-keyvisual__img').css({width: slideViewWidth});
+    $slideImg.css({width: slideViewWidth});
     $slideWrap.css({width: slideViewWidth * slideListLen * 2})
     $slideWrap.children().first()
     .css({
