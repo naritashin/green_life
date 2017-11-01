@@ -394,6 +394,7 @@ $(function() {
       $facilitySlideList.animate({
         marginLeft: '-'+ facilitySlideViewWidth * num +'px'
       });
+
       $('.p-facility__slide__btn').removeClass('is-facility-active');
       $(this).addClass('is-facility-active');
     });
