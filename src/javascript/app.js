@@ -1,6 +1,4 @@
 $(function() {
-  ajax();
-
   var $fontSizeDefault = $('.js-default'),
       $fontSizeLarge = $('.js-large'),
 
@@ -17,6 +15,7 @@ $(function() {
       facilitySlideViewWidth,
       facilitySlideListLen;
 
+  ajax();
   createKeyvisualBtn();
 
   $fontSizeDefault.on({
@@ -26,7 +25,18 @@ $(function() {
     'mouseleave': function() {
       if(!$(this).hasClass('is-current')) {
         $(this).attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_default.png');
-      };
+      }
+    },
+    'click': function() {
+      if(!$(this).hasClass('is-current')) {
+        $('.js-fs').css('font-size', '-=3');
+      }
+
+      $('.js-fsselect').removeClass('is-current');
+      $fontSizeLarge.attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_large.png');
+
+      $(this).addClass('is-current');
+      $(this).attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_default_on.png');
     }
   });
 
@@ -38,40 +48,30 @@ $(function() {
       if(!$(this).hasClass('is-current')) {
         $(this).attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_large.png');
       }
+    },
+    'click': function() {
+      if(!$(this).hasClass('is-current')) {
+        $('.js-fs').css('font-size', '+=3');
+      }
+
+      $('.js-fsselect').removeClass('is-current');
+      $fontSizeDefault.attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_default.png');
+
+      $(this).addClass('is-current');
+      $(this).attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_large_on.png');
+
     }
-  });
-
-  $fontSizeDefault.on('click', function() {
-    if(!$(this).hasClass('is-current')) {
-      $('.js-fs').css('font-size', '-=3');
-    }
-
-    $('.js-fsselect').removeClass('is-current');
-    $fontSizeLarge.attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_large.png');
-    $(this).addClass('is-current');
-    $(this).attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_default_on.png');
-  });
-
-  $fontSizeLarge.on('click', function() {
-    if(!$(this).hasClass('is-current')) {
-      $('.js-fs').css('font-size', '+=3');
-    }
-
-    $('.js-fsselect').removeClass('is-current');
-    $fontSizeDefault.attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_default.png');
-
-    $(this).addClass('is-current');
-    $(this).attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_large_on.png');
   });
 
   $('.js-menu').hover(function() {
-    if($(window).width() > 640) {
+    if($(window).width()+16 >= 640) {
       $(this).children('ul')
       .fadeIn(400);
     };
   }, function() {
-    if($(window).width() > 640) {
+    if($(window).width()+16 >= 640) {
       $(this).children('ul')
+      .stop()
       .fadeOut(0);
     }
   });
@@ -115,13 +115,15 @@ $(function() {
 
     $('.p-keyvisual__img').css({width: slideViewWidth});
     $slideWrap.css({width: slideViewWidth * slideListLen * 2})
-    $slideWrap.children().first().css({
+    $slideWrap.children().first()
+    .css({
       width: slideViewWidth * slideListLen,
       marginLeft: '-' + i * slideViewWidth + 'px'
     });
+
     leftValue = i * slideViewWidth;
 
-    if ($(window).width()+15 < 640) {
+    if ($(window).width()+16 < 640) {
       var nowNum = $('.is-facility-active').parent().val();
 
       facilitySlideViewWidth = $facilitySlideView.width();
@@ -143,12 +145,12 @@ $(function() {
     nowNum = $('.is-facility-active').parent().val();
     $facilitySlideBtnList = $('.p-facility__slide__btn__list');
 
-    if ($facilitySlideBtnList.hasClass('is-n4') && $(window).width()+15 <= 640) {
+    if ($facilitySlideBtnList.hasClass('is-n4') && $(window).width()+16 < 640) {
       nowNum *= 2;
 
       $facilitySlideBtnList.removeClass('is-n4');
       setFacilitySlideSmall(nowNum);
-    } else if ($facilitySlideBtnList.hasClass('is-n2') && $(window).width()+15 > 640) {
+    } else if ($facilitySlideBtnList.hasClass('is-n2') && $(window).width()+16 >= 640) {
       nowNum = Math.floor(nowNum/2);
 
       $facilitySlideBtnList.removeClass('is-n2');
@@ -214,9 +216,25 @@ $(function() {
   }
 
   function showFacilities(data) {
+    var count = 0,
+        slideCount;
+
     data.facilities.forEach(function(facilities) {
+
+
+      if((count % 4) === 0 && (count % 2) === 0) {
+        slideCount = 'is-count-n2 is-count-n4';
+      } else if((count % 4) === 0) {
+        slideCount = 'is-count-n4';
+      } else if((count % 2) === 0) {
+        slideCount = 'is-count-n2';
+      } else {
+        slideCount = '';
+      }
+      count += 1;
+
       var item =
-        '<li>'+
+        '<li class="'+ slideCount +'">'+
           '<figure class="p-facility__item">'+
             '<a href="">'+
               '<img src="'+ facilities.img +'" alt="'+ facilities.name +'" class="p-facility__img">'+
@@ -284,9 +302,7 @@ $(function() {
       i += 1;
 
       $('.is-keyvisual-active').removeClass('is-keyvisual-active')
-      .parent()
       .next()
-      .children()
       .addClass('is-keyvisual-active');
 
       firstSlideList.stop()
@@ -296,22 +312,21 @@ $(function() {
           firstSlideList.remove();
           leftValue = 0;
           i = 0;
+
           $('.is-keyvisual-active').removeClass('is-keyvisual-active');
-          $('.p-keyvisual__slide__btn__list')
-          .children()
+
+          $('.p-keyvisual__slide__btn__list').children()
           .first()
-          .children()
           .addClass('is-keyvisual-active');
         }
       );
     } else {
       leftValue += slideViewWidth;
       i += 1;
+
       $('.is-keyvisual-active')
       .removeClass('is-keyvisual-active')
-      .parent()
       .next()
-      .children()
       .addClass('is-keyvisual-active');
 
       firstSlideList.stop()
@@ -323,20 +338,23 @@ $(function() {
   }
 
   function createKeyvisualBtn() {
+    var slideArr = Array.from($slideList.children()),
+        num = 0;
+
     $('.p-keyvisual__slide__btn__list').children().remove();
-    for(var num = 0; num < slideListLen; num++) {
+    slideArr.forEach(function() {
       var active = num == 0 ? 'is-keyvisual-active' : '',
           item =
-        '<li value="'+ num +'">'+
-          '<div class="p-keyvisual__slide__btn '+ active +'"></div>'+
-        '</li>';
+            '<li value="'+ num +'" class="p-keyvisual__slide__btn '+ active +'">'+
+            '</li>';
 
+      num += 1;
       $('.p-keyvisual__slide__btn__list').append(item);
-    }
+    });
   }
 
   function keyvisualMoveSlide(value, current) {
-    var num = current.parent().val(),
+    var num = current.val(),
         value = slideViewWidth * num,
         arr = {int: num, value: value};
 
@@ -410,20 +428,23 @@ $(function() {
   }
 
   function createFacilityBtn(slideList, slideViewWidth, slideNum) {
-    var facilityBtnLen = slideList.width()/slideViewWidth/slideNum,
-        $facilitySlideBtnList = $('.p-facility__slide__btn__list');
+    var $facilitySlideBtnList = $('.p-facility__slide__btn__list'),
+        slideArr = Array.from($('.is-count-n'+ slideNum)),
+        num = 0;
 
     $facilitySlideBtnList.children().remove();
 
-    for(var num = 0; num < facilityBtnLen; num++) {
-      var active = num == nowNum ? 'is-facility-active' : '';
-      var item =
-        '<li value="'+ num +'">'+
-          '<div class="p-facility__slide__btn '+ active +'"></div>'+
-        '</li>';
+    slideArr.forEach(function() {
+      var active = num == nowNum ? 'is-facility-active' : '',
+          item =
+            '<li value="'+ num +'">'+
+              '<div class="p-facility__slide__btn '+ active +'"></div>'+
+            '</li>';
 
+      num += 1;
       $facilitySlideBtnList.append(item);
-    }
+    });
+
     $facilitySlideBtnList.addClass('is-n'+slideNum);
   }
 });
