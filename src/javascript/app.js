@@ -216,11 +216,9 @@ $(function() {
   }
 
   function showFacilities(data) {
-    var count = 0,
-        slideCount;
+    var slideCount;
 
-    data.facilities.forEach(function(facilities) {
-
+    data.facilities.forEach(function(facilities, count) {
 
       if((count % 4) === 0 && (count % 2) === 0) {
         slideCount = 'is-count-n2 is-count-n4';
@@ -231,7 +229,6 @@ $(function() {
       } else {
         slideCount = '';
       }
-      count += 1;
 
       var item =
         '<li class="'+ slideCount +'">'+
@@ -338,17 +335,14 @@ $(function() {
   }
 
   function createKeyvisualBtn() {
-    var slideArr = Array.from($slideList.children()),
-        num = 0;
-
     $('.p-keyvisual__slide__btn__list').children().remove();
-    slideArr.forEach(function() {
-      var active = num == 0 ? 'is-keyvisual-active' : '',
+
+    $slideList.children().each(function(count) {
+      var active = count == 0 ? 'is-keyvisual-active' : '',
           item =
-            '<li value="'+ num +'" class="p-keyvisual__slide__btn '+ active +'">'+
+            '<li value="'+ count +'" class="p-keyvisual__slide__btn '+ active +'">'+
             '</li>';
 
-      num += 1;
       $('.p-keyvisual__slide__btn__list').append(item);
     });
   }
@@ -436,20 +430,17 @@ $(function() {
   function createFacilityBtn(slideList,
     slideViewWidth,
     slideNum) {
-    var $facilitySlideBtnList = $('.p-facility__slide__btn__list'),
-        slideArr = Array.from($('.is-count-n'+ slideNum)),
-        num = 0;
+    var $facilitySlideBtnList = $('.p-facility__slide__btn__list');
 
     $facilitySlideBtnList.children().remove();
 
-    slideArr.forEach(function() {
-      var active = num == nowNum ? 'is-facility-active' : '',
+    $('.is-count-n'+ slideNum).each(function(count) {
+      var active = count == nowNum ? 'is-facility-active' : '',
           item =
-            '<li value="'+ num +'">'+
+            '<li value="'+ count +'">'+
               '<div class="p-facility__slide__btn '+ active +'"></div>'+
             '</li>';
 
-      num += 1;
       $facilitySlideBtnList.append(item);
     });
 
