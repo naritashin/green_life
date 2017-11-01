@@ -10,9 +10,7 @@ $(function() {
       leftValue = 0,
       i = 0,
 
-      $facilitySlideView,
       $facilitySlideList,
-      facilitySlideViewWidth,
       facilitySlideListLen;
 
   ajax();
@@ -126,7 +124,7 @@ $(function() {
     if ($(window).width()+16 < 640) {
       var nowNum = $('.is-facility-active').parent().val();
 
-      facilitySlideViewWidth = $facilitySlideView.width();
+      facilitySlideViewWidth = $('.p-facility__slide__wrapper').width();
 
       $facilitySlide.css({
         width: facilitySlideViewWidth/2
@@ -293,7 +291,7 @@ $(function() {
   function keyvisualSlider() {
     var firstSlideList = $slideWrap.children().first();
 
-    if (leftValue == firstSlideList.width()-slideViewWidth) {
+    if (leftValue == firstSlideList.width() - slideViewWidth) {
       firstSlideList.clone(true)
       .css({marginLeft: 0})
       .appendTo($slideWrap);
@@ -370,10 +368,9 @@ $(function() {
   }
 
   function setFacilitySlideSmall(number = 0) {
-    $facilitySlideView = $('.p-facility__slide__wrapper');
     $facilitySlideList = $('.p-facility__list');
     $facilitySlide = $('.p-facility__list').children('li');
-    facilitySlideViewWidth = $facilitySlideView.width();
+    facilitySlideViewWidth = $('.p-facility__slide__wrapper').width();
     facilitySlideListLen = $facilitySlideList.find('li').length;
     nowNum = number;
 
@@ -401,10 +398,9 @@ $(function() {
   }
 
   function setFacilitySlide(number = 0) {
-    $facilitySlideView = $('.p-facility__slide__wrapper');
     $facilitySlideList = $('.p-facility__list');
     $facilitySlide = $('.p-facility__list li');
-    facilitySlideViewWidth = $facilitySlideView.width();
+    facilitySlideViewWidth = $('.p-facility__slide__wrapper').width();
     facilitySlideListLen = $facilitySlideList.find('li').length;
     nowNum = number;
 
