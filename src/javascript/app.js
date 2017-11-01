@@ -5,7 +5,6 @@ $(function() {
       $slideView = $('.p-keyvisual__wrapper'),
       $slideList = $('.p-keyvisual__list'),
       $slideWrap = $('.slide__wrap'),
-      $slideImg = $('.p-keyvisual__img'),
       slideViewWidth = $slideView.width(),
       slideListLen = $slideList.find('li').length,
       leftValue = 0,
@@ -87,7 +86,7 @@ $(function() {
     $('html').animate({ scrollTop: 0}, 500);
   });
 
-  $slideImg.css({
+  $('.p-keyvisual__img').css({
     width: slideViewWidth
   });
   $slideList.css({
@@ -112,8 +111,13 @@ $(function() {
   $(window).on('resize', function() {
     slideViewWidth = $slideView.width();
 
-    $slideImg.css({width: slideViewWidth});
-    $slideWrap.css({width: slideViewWidth * slideListLen * 2})
+    $('.p-keyvisual__img').css({
+      width: slideViewWidth
+    });
+    $slideWrap.css({
+      width: slideViewWidth * slideListLen * 2
+    });
+
     $slideWrap.children().first()
     .css({
       width: slideViewWidth * slideListLen,
@@ -130,14 +134,11 @@ $(function() {
       $facilitySlide.css({
         width: facilitySlideViewWidth/2
       });
-      $facilitySlideList.css({
-        width: facilitySlideViewWidth * facilitySlideListLen
-      });
-
-      $facilitySlideList.css({
-        marginLeft: '-'+ facilitySlideViewWidth * nowNum +'px'
-      });
-    }
+      facilityListResize($facilitySlideList,
+        facilitySlideViewWidth,
+        facilitySlideListLen,
+        nowNum);
+      }
   });
 
   $(window).on('resize', function() {
@@ -379,12 +380,14 @@ $(function() {
       width: facilitySlideViewWidth/2
     });
 
-    $facilitySlideList.css({
-      width: facilitySlideViewWidth * facilitySlideListLen,
-      marginLeft: '-'+ facilitySlideViewWidth * nowNum +'px'
-    });
+    facilityListResize($facilitySlideList,
+      facilitySlideViewWidth,
+      facilitySlideListLen,
+      nowNum);
 
-    createFacilityBtn($facilitySlideList, facilitySlideViewWidth, 2);
+    createFacilityBtn($facilitySlideList,
+      facilitySlideViewWidth,
+      2);
 
     $('.p-facility__slide__btn').on('click', function() {
       num = $(this).parent().val();
@@ -405,27 +408,34 @@ $(function() {
     facilitySlideListLen = $facilitySlideList.find('li').length;
     nowNum = number;
 
-    $facilitySlideList.css({
-      width: facilitySlideViewWidth * facilitySlideListLen,
-      marginLeft: '-'+ facilitySlideViewWidth * nowNum +'px'
-    });
+    facilityListResize($facilitySlideList,
+      facilitySlideViewWidth,
+      facilitySlideListLen,
+      nowNum);
 
     $facilitySlide.css({
       width: 245
     });
 
-    createFacilityBtn($facilitySlideList, facilitySlideViewWidth, 4);
+    createFacilityBtn($facilitySlideList,
+      facilitySlideViewWidth,
+      4);
 
     $('.p-facility__slide__btn').on('click', function() {
       num = $(this).parent().val();
 
-      $facilitySlideList.animate({marginLeft: '-'+ facilitySlideViewWidth * num +'px'});
+      $facilitySlideList.animate({
+        marginLeft: '-'+ facilitySlideViewWidth * num +'px'
+      });
+
       $('.p-facility__slide__btn').removeClass('is-facility-active');
       $(this).addClass('is-facility-active');
     });
   }
 
-  function createFacilityBtn(slideList, slideViewWidth, slideNum) {
+  function createFacilityBtn(slideList,
+    slideViewWidth,
+    slideNum) {
     var $facilitySlideBtnList = $('.p-facility__slide__btn__list'),
         slideArr = Array.from($('.is-count-n'+ slideNum)),
         num = 0;
@@ -444,5 +454,12 @@ $(function() {
     });
 
     $facilitySlideBtnList.addClass('is-n'+slideNum);
+  }
+
+  function facilityListResize(list, viewWidth, len, num) {
+    list.css({
+      width: viewWidth * len,
+      marginLeft: '-'+ viewWidth * num +'px'
+    });
   }
 });
