@@ -85,11 +85,13 @@ $(function() {
       $('.p-facility__list li').css({
         width: facilitySlideViewWidth/2
       });
-      facilityListResize($facilitySlideList,
+      facilityListResize(
+        $facilitySlideList,
         facilitySlideViewWidth,
         facilitySlideListLen,
-        $('.is-facility-active').parent().val());
-      }
+        $('.is-facility-active').parent().val()
+      );
+    }
 
     if ($facilitySlideBtnList.hasClass('is-n4') && $(window).width()+16 < 640) {
       nowNum *= 2;
@@ -292,19 +294,18 @@ $(function() {
       .animate({
         marginLeft: '-'+ leftValue +'px'
       },
-        700,
-        function() {
-          firstSlideList.remove();
-          leftValue = 0;
-          i = 0;
+      700,
+      function() {
+        firstSlideList.remove();
+        leftValue = 0;
+         i = 0;
 
-          $('.is-keyvisual-active').removeClass('is-keyvisual-active');
+        $('.is-keyvisual-active').removeClass('is-keyvisual-active');
 
-          $('.p-keyvisual__slide__btn__list').children()
-          .first()
-          .addClass('is-keyvisual-active');
-        }
-      );
+        $('.p-keyvisual__slide__btn__list').children()
+        .first()
+        .addClass('is-keyvisual-active');
+      });
     } else {
       leftValue += slideViewWidth;
       i += 1;
@@ -361,14 +362,18 @@ $(function() {
       width: facilitySlideViewWidth/2
     });
 
-    facilityListResize($facilitySlideList,
+    facilityListResize(
+      $facilitySlideList,
       facilitySlideViewWidth,
       facilitySlideListLen,
-      nowNum);
+      nowNum
+    );
 
-    createFacilityBtn($facilitySlideList,
+    createFacilityBtn(
+      $facilitySlideList,
       facilitySlideViewWidth,
-      2);
+      2
+    );
 
     $('.p-facility__slide__btn').on('click', function() {
       num = $(this).parent().val();
@@ -414,9 +419,11 @@ $(function() {
     });
   }
 
-  function createFacilityBtn(slideList,
+  function createFacilityBtn(
+    slideList,
     slideViewWidth,
-    slideNum) {
+    slideNum
+  ) {
     var $facilitySlideBtnList = $('.p-facility__slide__btn__list');
 
     $facilitySlideBtnList.children().remove();
@@ -434,7 +441,12 @@ $(function() {
     $facilitySlideBtnList.addClass('is-n'+slideNum);
   }
 
-  function facilityListResize(list, viewWidth, len, num) {
+  function facilityListResize(
+    list,
+    viewWidth,
+    len,
+    num
+  ) {
     list.css({
       width: viewWidth * len,
       marginLeft: '-'+ viewWidth * num +'px'
