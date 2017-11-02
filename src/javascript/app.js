@@ -14,6 +14,7 @@ $(function() {
       facilitySlideListLen;
 
   ajax();
+  keyvisualInit();
   createKeyvisualBtn();
 
   $fontSizeDefault.on({
@@ -21,14 +22,12 @@ $(function() {
       $(this).attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_default_on.png');
     },
     'mouseleave': function() {
-      if(!$(this).hasClass('is-current')) {
+      if(!$(this).hasClass('is-current'))
         $(this).attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_default.png');
-      }
     },
     'click': function() {
-      if(!$(this).hasClass('is-current')) {
+      if(!$(this).hasClass('is-current'))
         $('.js-fs').css('font-size', '-=3');
-      }
 
       $('.js-fsselect').removeClass('is-current');
       $fontSizeLarge.attr('src', 'http://www.greenlife-inc.co.jp/wp-content/themes/greenlife-inc/images/head/btn_txt_large.png');
@@ -83,17 +82,10 @@ $(function() {
   });
 
   $('.js-totop').on('click', function() {
-    $('html').animate({ scrollTop: 0}, 500);
-  });
-
-  $('.p-keyvisual__img').css({
-    width: slideViewWidth
-  });
-  $slideList.css({
-    width: slideViewWidth*slideListLen
-  });
-  $slideWrap.css({
-    width: slideViewWidth*slideListLen*2
+    $('html').animate({
+      scrollTop: 0
+    },
+    500);
   });
 
   setInterval(function() {
@@ -286,6 +278,18 @@ $(function() {
         $('.p-info__list').append(item);
     });
   }
+
+  function keyvisualInit() {
+    $('.p-keyvisual__img').css({
+      width: slideViewWidth
+    });
+    $slideList.css({
+      width: slideViewWidth*slideListLen
+    });
+    $slideWrap.css({
+      width: slideViewWidth*slideListLen*2
+    });
+  };
 
   function keyvisualSlider() {
     var firstSlideList = $slideWrap.children().first();
