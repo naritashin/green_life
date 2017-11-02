@@ -8,10 +8,7 @@ $(function() {
       slideViewWidth = $slideView.width(),
       slideListLen = $slideList.find('li').length,
       leftValue = 0,
-      i = 0,
-
-      $facilitySlideList,
-      facilitySlideListLen;
+      i = 0;
 
   ajax();
   keyvisualInit();
@@ -64,6 +61,8 @@ $(function() {
   $(window).on('resize', function() {
     slideViewWidth = $slideView.width();
     slideWidth = slideViewWidth * slideListLen;
+    nowNum = $('.is-facility-active').parent().val();
+    $facilitySlideBtnList = $('.p-facility__slide__btn__list');
 
     $('.p-keyvisual__img').css({
       width: slideViewWidth
@@ -83,7 +82,7 @@ $(function() {
     if ($(window).width()+16 < 640) {
       facilitySlideViewWidth = $('.p-facility__slide__wrapper').width();
 
-      $facilitySlide.css({
+      $('.p-facility__list li').css({
         width: facilitySlideViewWidth/2
       });
       facilityListResize($facilitySlideList,
@@ -91,11 +90,6 @@ $(function() {
         facilitySlideListLen,
         $('.is-facility-active').parent().val());
       }
-  });
-
-  $(window).on('resize', function() {
-    nowNum = $('.is-facility-active').parent().val();
-    $facilitySlideBtnList = $('.p-facility__slide__btn__list');
 
     if ($facilitySlideBtnList.hasClass('is-n4') && $(window).width()+16 < 640) {
       nowNum *= 2;
