@@ -8,7 +8,9 @@ $(function() {
       slideViewWidth = $slideView.width(),
       slideListLen = $slideList.find('li').length,
       leftValue = 0,
-      i = 0;
+      i = 0,
+
+      facilitySlideListLen;
 
   ajax();
   keyvisualInit();
@@ -190,6 +192,7 @@ $(function() {
 
       $('.p-facility__list').append(item);
     });
+    facilitySlideListLen = $facilitySlideList.find('li').length;
   }
 
   function showNews(data) {
@@ -355,7 +358,6 @@ $(function() {
   function setFacilitySlideSmall(number = 0) {
     $facilitySlideList = $('.p-facility__list');
     facilitySlideViewWidth = $('.p-facility__slide__wrapper').width();
-    facilitySlideListLen = $facilitySlideList.find('li').length;
     nowNum = number;
 
     $('.p-facility__list li').css({
